@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conditional Probability</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Sub Problem: Conditional Probability</h1>
+    <div>
+        <p>Conditional expectations combine the logic of conditional probability and expected values. In the same way we could ask “what is the probability that the Lakers (an NBA team) win given that LeBron James scores more than 30 points?”, we can also ask “what is the expected number of points that the Lakers score given that LeBron James scores more than 30 points?”. </p>
+		<p>Once we’ve thought about conditional expectations this way, it’s clear where the conditional expected value formula comes from. We compute expected values by taking the sum of all possible outcomes multiplied by the probability that each outcome occurs. Thus, we compute <b>conditional</b> expected values by taking the sum of all possible outcomes multiplied by the <b>conditional</b> probability that the outcome occurs.</p>
+		<p>Let’s work through a couple examples to build this intuition.</p>
+    </div>
+    
+	<div>
+		<button onclick="openNewPage()">Continue</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p2sub1_main_2.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

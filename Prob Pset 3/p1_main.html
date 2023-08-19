@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 1</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 1: Normal Distributions</h1>
+    <div>
+        <p>You are in charge of logistics management for a chain of retail stores and are trying to decide how much stock of a popular item to keep at one of your locations.</p>
+		<p>There is a nightly shipment, so the location's stock can be fully replenished at the start of each day; however, it's difficult to forecast daily demand. If the demand on  given day excedes level of stock that you choose for the item, you will run out and miss out on sales. (The cost of overstocking is wasted capital, but this is irrelevant for the purposes of this question.)</p>
+		<p>An analyst has forecasted that daily demand for this item is normally distributed with mean 200 and standard deviation 15.</p>
+		<p>If you choose to stock 220 units of the item, what is the probability that you will run out of stock on a given day?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">9 percent</button>
+        <button onclick="toggleVisibility('paragraph3')">91 percent</button>
+        <button onclick="toggleVisibility('paragraph4')">Essentially 0 percent</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">This problem asks you to compute the probability that a normally distributed random variabl exceeds some threshold. The key to solving this problem is to recognize that, for the purposes of this class, this requires using the standard normal table to look up the correct probability. But how can we translate our random variable (which is not standard normal) into a standard normal? Consider doing <a href = "p1sub1_main.html">this subquestion</a> if you are struggling with this.</p>
+    <p id="paragraph2" class="hidden">Correct!</p>
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably calculated the probability that demand <b>does not</b> exceed 220 units. Recall the graph of the area of the normal distribution.</p>
+    <p id="paragraph4" class="hidden">If you arrived at this answer, you probably calculated the probability that a standard normal (rather than the normal that we specified) does not exceed 220. Consider doing <a href = p1sub1_main.html>this subquestion</a> to practice how probability for normally distributed random variables can be computed using a standard normal distribution and table.</p>
+	
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p2_main.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conditional Probability</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Sub Problem: Conditional Probability</h1>
+    <div>
+        <p>Let’s do a more complex example to further build intuition. For this problem, please make sure to draw a probability tree.</p>
+		<p>You are trying to figure out how many minutes it is going to take you to drive to work.</p>
+		<p>If it is not raining, there is a 20 percent chance that their will be an accident and it will take you 25 minutes to drive to work, as well as an 80 percent chance of no accident and the drive will take 20 minutes.</p>
+		<p>If it is raining, there is a 40 percent chance of an accident and it will take you 30 minutes to drive to work. If it is raining but there is no accident, it will take 20 minutes.</p>
+		<p>Finally, there is a 25 percent chance of rain.</p>
+		<p>Draw the probability tree for this situation before continuing.</p>
+    </div>
+    
+
+	
+	<div>
+		<button onclick="openNewPage()">Continue</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p2sub1_main_4.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

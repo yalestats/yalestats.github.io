@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Topic 1</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Topic 1: Population Parameters and Sample Estimates</h1>
+    <div>
+        <p>We are often interested in estimating "true" (population) parameters using sample data. The population parameters are features of the "true" model or data generating process. For example,
+            the population average value of the roll of a fair die is (1 + 2 + 3 + 4 + 5 + 6)/6 = 3.5. 
+        </p>
+        <p>
+            Recall the samples from the introductory example: {4, 1, 6, 2, 5, 4, 1, 3, 6, 2} and {3, 5, 2, 6, 6, 3, 4, 2, 3, 5}. What are the sample averages in these samples? (4 + 1 + 6 + 2 + 5 + 4 + 1 + 3 + 6 + 2)/10 = 3.4 and (3 + 5 + 2 + 6 + 6 + 3 + 4 + 2 + 3 + 5)/10 = 3.9. 
+            Notice that neither sample average is equal to the population average of 3.5. 
+            </p>
+            <p>
+            Despite this, we use sample averages like the ones above to estimate population averages when population averages are unknown. The same is true for other population parameters.
+            </p>
+
+            <h3>Practice Problem 1</h3>
+		
+        <p>- Suppose the earnings of adults in Nashville, Tennessee is approximately normally distributed with mean μ=150,000 and standard deviation σ= 30,000. 
+            This will be our data generating process. Use R to construct 100 different random samples of 1,000 individuals from this population. Calculate and store 
+            the sample averages for the 100 samples in a single vector. Are any equal to 150,000? 
+            </p>
+            <p>
+            <i>Note:</i> For reproducibility, you should set a value for the random seed before beginning. If you are confused, please use ChatGPT to help.
+            </p>
+    </div>
+
+
+    <div>
+		<button onclick="openPreviousPage()">Previous Topic: Introduction</button>
+		<script>
+			function openPreviousPage() {
+				window.location.href = "main.html";
+			}
+		</script>
+	</div>
+
+	<div>
+		<button onclick="openNewPage()">Next Topic: Confidence Intervals</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "part2.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

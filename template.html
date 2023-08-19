@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hidden Paragraphs</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Hidden Paragraphs Demo</h1>
+    <div>
+        <p>This is the main paragraph of text.</p>
+        <p>It can be split into multiple paragraphs.</p>
+        <p>Each paragraph will remain visible.</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">Toggle Paragraph 1</button>
+        <button onclick="toggleVisibility('paragraph2')">Toggle Paragraph 2</button>
+        <button onclick="toggleVisibility('paragraph3')">Toggle Paragraph 3</button>
+        <button onclick="toggleVisibility('paragraph4')">Toggle Paragraph 4</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">This is paragraph 1.</p>
+    <p id="paragraph2" class="hidden">This is paragraph 2.</p>
+    <p id="paragraph3" class="hidden">This is paragraph 3.</p>
+    <p id="paragraph4" class="hidden">This is paragraph 4.</p>
+</body>
+</html>

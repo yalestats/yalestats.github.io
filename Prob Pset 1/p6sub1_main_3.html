@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Unknown Probs.</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Sub-Problem: Useful Approaches for Finding Unknown Probabilities cont.</h1>
+    <div>
+		<p>Let’s do one more sample problem to test our understanding.</p>
+        <p>Consider two not-independent events A and B and the following probabilities:
+			<ul>
+				<li>P(A) = 0.55</li>
+				<li>P(B) = 0.3</li>
+				<li>P(A AND B) = 0.25</li>
+			</ul>
+		</p>	
+
+		<p>What is P(NOT A AND NOT B)?</p>
+		
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don’t know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">40 percent</button>
+        <button onclick="toggleVisibility('paragraph3')">5 percent</button>
+		<button onclick="toggleVisibility('paragraph4')">30 percent</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">If you are having difficultly figuring out how to fill out your probability tree, considering switch the order of the events (i.e. put B first, rather than A). </p>
+	
+	<p id="paragraph3" class="hidden">Correct!</p>
+	
+    <p id="paragraph3" class="hidden">Incorrect.</p>
+	
+    <p id="paragraph4" class="hidden">Incorrect.</p>
+	
+	
+	
+	<div>
+		<button onclick="openNewPage()">Return to Main Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p6_main.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

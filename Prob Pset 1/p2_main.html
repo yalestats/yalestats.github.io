@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 2</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 2: Drawing Balls from a Bag cont.</h1>
+    <div>
+        <p>Suppose we have a bag containing ten balls. The balls can be blue or red and can be marked with a dot or unmarked. 
+		Two of the balls are blue and unmarked, four of the balls are red and unmarked, two of the balls are blue and marked, 
+		and two of the balls are red and marked.</p>
+		
+        <p>If we first draw one red ball and do not put it back, what is the probability that the next ball we draw from the remaining balls is also red?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">1/3</button>
+        <button onclick="toggleVisibility('paragraph3')">9/25</button>
+        <button onclick="toggleVisibility('paragraph4')">3/10</button>
+		<button onclick="toggleVisibility('paragraph5')">1/2</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">The key to this problem is to note that these are consecutive events. 
+	We should keep track of the number of red balls in the bag for each draw, as well as the total number of balls in the bag.</p>
+	
+    <p id="paragraph2" class="hidden">Correct!</p>
+	
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you likely forgot to account for the fact that the probability of 
+	the second draw depends on the outcome of the first. If we draw one of the six red balls in our first draw (6/10 chance), 
+	there are five red balls remaining in the bag and nine balls total. Thus the probability of drawing the second red ball is NOT 
+	another 6/10. This is the reason that the formula P(A AND B) = P(A)*P(B|A) is true, rather than the perhaps more intuitive but incorrect P(A AND B) = P(A)*P(B).</p>
+	
+    <p id="paragraph4" class="hidden">If you arrived at this answer, you likely forgot to account for the fact that drawing a red ball on the first draw reduces the number of red balls in the bag (from 6 to 5) but ALSO reduces the total number of balls in the bag (from 10 to 9). Thus the probability of drawing a second red ball is not 5/10.</p>
+	
+	<p id="paragraph5" class="hidden">If you arrived at this answer, you likely forgot to account for the fact that drawing the first red ball reduces the number of red balls in the bag (from 6 to 5). Thus the probability of drawing the second red ball is not 6/9.</p>
+	
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p3_blurb.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

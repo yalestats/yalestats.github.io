@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 4</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 4: Rain, Temperature, and Umbrellas cont.</h1>
+    <div>
+        <p>We are trying to decide if we should bring an umbrella with us on our way to class. From experience living in New Haven, we have an idea of the chance of rain based on the temperature during the midday. </p>
+		
+        <p>There is a 40 percent chance that the midday temperature will be below 65 degrees and a 60 percent chance that it will be above 65 degrees. If the temperature is below 65 degrees, we think that there is a 50 percent chance that it will rain. If it is above, we think that there is a 25 percent chance it will rain.</p>
+		
+		<p>What is the probability that it rains?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">35 percent</button>
+        <button onclick="toggleVisibility('paragraph3')">37.5 percent</button>
+        <button onclick="toggleVisibility('paragraph4')">40 percent</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">Here, we are interested in the total probability that it rains. That means the outcomes could either be (below 65 AND rains) or (above 65 AND rains). We need to combine our knowledge of formulas for P(A AND B) and P(A OR B) to figure out how to compute the probability of this event. If you are struggling to figure out how to approach this problem or have difficultly remembering or understanding the formulas involve, consider working through <a href="p4sub1_main.html">this sub-problem</a> to gain some understanding.</p>
+	
+    <p id="paragraph2" class="hidden">Correct!</p>
+	
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably took the simple average of the two probabilities that it rains. This is not correct, as it doesn’t account for the fact that cold and warm days are not equally likely!</p>
+	
+    <p id="paragraph4" class="hidden">Incorrect</p>
+		
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p5_main.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

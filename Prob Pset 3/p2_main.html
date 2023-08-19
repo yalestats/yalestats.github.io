@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 2</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 2: Normal Distributions cont.</h1>
+    <div>
+		<p>Given that demand exceeds 220 units, what is the probability that you missed out on at least 20 units worth of additional sales? (That is that demand exceeded your stock by at least 20 units).</p>
+		<p>Recall that demand is normally distributed with mean 200 and standard deviation 15.</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">4 percent</button>
+        <button onclick="toggleVisibility('paragraph3')">0.4 percent</button>
+        <button onclick="toggleVisibility('paragraph4')">Essentially 0 percent</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">This is an interesting problem that asks you to compute a <b>conditional probability</b>. In this case, this is the probability that you lost at least 20 units worth of sales given that you ran out of stock. How would you write this in conditional probability form? Can we use our knowledge of conditional probability formulas to manipulate this into a statement (or combination of statements) that we know how to calculate?</p>
+    <p id="paragraph2" class="hidden">Correct!</p>
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably calculated the probability that demand exceeds 240 units but failed to adjust for the fact that this problem asks you to compute a conditional probability. Consider reviewing the conditional probability formula and how it applies to this question.</p>
+    <p id="paragraph4" class="hidden">Incorrect.</p>
+	
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p3_main.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

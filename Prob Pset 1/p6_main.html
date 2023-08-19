@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 6</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 6:</h1>
+    <div>
+        <p>You are working for a company, and your close competitor has recently developed an experimental, proprietary technology that is potentially high-value. Your company is considering attempting to acquire your competitor to acquire this technology and has tasked you with assessing the probability of possible outcomes.</p>
+	
+        <p>One key issue is whether or not the new technology is actually high-value. Based on discussions with your R+D team, you think there’s a 35 percent chance that the technology is high value.</p>
+		<p>A second issue is that your company is quite large, and there’s a chance that the US Department of Justice (DoJ) will block a merger attempt. You consult your legal team and they assess that this risk is low and has a 10 percent chance of occurring.</p>
+		<p>Finally, an analyst examines past cases similar to yours and reports that the DoJ blocked the merger and the technology was high-value in one-quarter of cases which you interpret as a 25 percent chance of this occurring.</p>
+		<p>What is the probability that the DoJ allows the merger and the technology is high value?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">10 percent</button>
+        <button onclick="toggleVisibility('paragraph3')">75 percent</button>
+        <button onclick="toggleVisibility('paragraph4')">31.5 percent</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">This problem is difficult because, unlike the previous problems, we do not know all the probabilities along what feel like the natural steps to finding the probability that we need. We want to find P(allowed AND high value), but we do not know either of the conditional probabilities P(allowed|high value) or P(high value|allowed) that are necessary for our usual approach. Instead, we need an alternative way of finding the value we want. If you are struggling, consider doing <a href="p6sub1_main.html">this sub-problem</a> which demonstrates some steps on how to approach this in a simpler context.</p>
+	
+    <p id="paragraph2" class="hidden">Correct!</p>
+	
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably tried to applied the NOT operator to only one part of the event. That is P(allowed AND high value) = P(NOT blocked and high value), but this is *not* equal to 1-P(allowed AND high value). Consider working through <a href="p6sub1_main.html">this sub-problem</a> that will try to make this clear.</p>
+	
+    <p id="paragraph4" class="hidden">If you arrived at this answer, you multiplied together the probability of the technology being high value (35 percent) and DoJ allowing the merger (90 percent). This calculation does not work because the two events are not independent. P(A AND B) = P(A)*P(B|A) and, in this case, P(B|A) is *not* equal to P(B).</p>
+		
+	<div>
+		<button onclick="openNewPage()">You are done!</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p6_main.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

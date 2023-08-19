@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <title>Topic 8</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+        .centered-figure {
+            display: flex;
+        justify-content: center;
+    }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Topic 8: Evaluating Regression Output </h1>
+    <div>
+       
+        <p>
+            Congratulations! You have been hired as the
+            Chief Data Sorcerer at "FantasyTech," a tech company that brings magical innovations to life.
+        </p>
+
+        <p>
+            You are told of a dataset that contained historical 
+            records of "FantasyTech" sales over the past 10 years. 
+            Each of the 40 rows in the dataset represents the sales data for a particular quarter.
+            You know the variables are given by
+            <p>
+            <span class="mathjax">\(Y\)</span> - the total number of products sold by "FantasyTech" in the given quarter
+            </p>
+            <p>
+                <span class="mathjax">\(X\)</span> - the USD amount (in thousands) spent on marketing campaigns to promote "FantasyTech" products during the quarter
+            </p>
+        </p>
+
+        <p> Your goal is to recreate a regression model that predicts the future sales growth for "FantasyTech" based on the company's marketing spend. 
+            Unfortunately, your predecessor seems to have misplaced this historical sales dataset and only has the following R output - which is 
+            missing some information - to show you: 
+            </p>
+<p>
+    <div class="centered-figure">
+        <figure>
+            <img src="figures/table.png" alt="left">
+          </figure>
+        </div>
+</p>
+
+<p>
+   (1) To start, what is the missing value of the standard error on the coefficient for <span class="mathjax">\(X\)</span>?
+</p>
+        <div class="button-container">
+            <button onclick="toggleVisibility('paragraph1')">Click when finished with (1) </button>
+        </div>
+
+        <p id="paragraph1" class="hidden"> You should have gotten <span class="mathjax">\(se(\hat{\beta}_1) = 2.703\)</span>. This is because 
+            <span class="mathjax">$$\frac{\hat{\beta}_1}{se(\hat{\beta}_1)} = t \iff se(\hat{\beta}_1) = \frac{100.907}{37.326} $$</span> </p>
+
+        <p>
+        (2) You learn that the "FantasyTech" team has one other useful piece of information about the old regression model.
+        When marketing spending was $400,000, the predicted number of products sold was 40,016.51. Using this information, what is the 
+        missing value of <span class="mathjax">\(\hat{\beta}_0\)</span>, the intercept coefficient?
+         </p>
+                 <div class="button-container">
+                     <button onclick="toggleVisibility('paragraph2')">Click when finished with (2) </button>
+                 </div>
+
+        <p>
+
+            <p id="paragraph2" class="hidden"> The predicted number of products sold <span class="mathjax">\(\hat{Y}\)</span> is given by 
+                <span class="mathjax">$$\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X $$</span>
+                You are told that <span class="mathjax">\(X = 400\)</span> (be careful about the units!), so it must be that 
+                <span class="mathjax">$$\hat{\beta}_0 = 40,016.51 - 100.907 \times 400  = -346.29$$</span>
+            </p>
+
+        (3) Finally, what is the missing t-statistic for the intercept <span class="mathjax">\(\beta_0\)</span>? 
+        </p>
+
+        <div class="button-container">
+            <button onclick="toggleVisibility('paragraph3')">Click when finished with (3) </button>
+        </div>
+
+        <p id="paragraph3" class="hidden"> You should have gotten <span class="mathjax">\(t = -0.244\)</span>. This is because 
+            <span class="mathjax">$$\frac{\hat{\beta}_0}{se(\hat{\beta}_0)} = t \iff t = \frac{-346.29}{1417.973} $$</span> </p>
+
+    <div>
+		<button onclick="openPreviousPage()">Previous Topic: Introduction to Regression </button>
+		<script>
+			function openPreviousPage() {
+				window.location.href = "part7.html";
+			}
+		</script>
+	</div>
+
+	<div>
+		<button onclick="openNewPage()">Next Topic: Regression Hypothesis Testing</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "part9.html";
+			}
+		</script>
+	</div>
+	
+	<script>
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementsByClassName("mathjax")]);
+      </script>
+      
+</body>
+</html>

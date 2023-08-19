@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 1</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 1: Drawing Balls from a Bag</h1>
+    <div>
+        <p>Suppose we have a bag containing ten balls. The balls can be blue or red and can be marked with a dot or unmarked. 
+		Two of the balls are blue and unmarked, four of the balls are red and unmarked, two of the balls are blue and marked, 
+		and two of the balls are red and marked.</p>
+		
+        <p>Assuming we are equally likely to draw each ball, if we draw a single ball, what is the probability that it is blue or is marked (or both)?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">6/10</button>
+        <button onclick="toggleVisibility('paragraph3')">8/10</button>
+        <button onclick="toggleVisibility('paragraph4')">2/10</button>
+		<button onclick="toggleVisibility('paragraph5')">4/10</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">Because each ball is equally likely to be drawn and there are ten balls, 
+	we known that each ball has a 1/10 chance of being drawn. Using this, we can find the probability of drawing 
+	a blue ball by counting the number of ball balls in the bag (four) and multiplying to find that 4/10 is the probability 
+	of drawing a blue ball. We can use this same technique to find the probability of other types of balls.</p>
+	
+    <p id="paragraph2" class="hidden">Correct!</p>
+	
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you likely double-counted the balls that are blue and marked. 
+	There are 4 blue balls so the probability of drawing a blue ball is 4/10. There are also 4 marked balls so the probability of 
+	drawing a marked ball is 4/10. However, because two of the blue balls are also marked, the total number of blue or marked balls is 
+	only 6 (2 blue unmarked + 2 blue marked + 2 red marked). Thus the total number of balls satisfying the requirement is 6, not 8. This 
+	is the reasoning behind the formula P(A OR B) = P(A) + P(B) – P(A AND B).</p>
+	
+    <p id="paragraph4" class="hidden">If you arrived at this answer, you likely only counted 
+	the balls that are both blue and marked. Because we are looking for balls that are blue OR marked, 
+	the blue unmarked balls (2) and the red marked balls (2) both satisfy the requirement along with 
+	the blue marked balls (2), making 6 total balls. </p>
+	
+	<p id="paragraph5" class="hidden">If you arrived at this answer, you likely forgot to count the balls that were both blue and marked.</p>
+	
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p2_main.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

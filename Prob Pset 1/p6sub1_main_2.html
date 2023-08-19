@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Unknown Probs.</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Sub-Problem: Useful Approaches for Finding Unknown Probabilities cont.</h1>
+    <div>
+        <p>Consider two not-independent events A and B and the following probabilities:
+			<ul>
+				<li>P(A) = 0.55</li>
+				<li>P(B) = 0.3</li>
+				<li>P(A AND B) = 0.25</li>
+			</ul>
+		</p>	
+
+		<p>Now that we have the formula P(A AND NOT B) = P(A) – P(A AND B), finding our answer is easy! (You can easily confirm that P(A AND NOT B) = 0.3) But what does this expression mean, how did we arrive at it, and how can we develop our ability to derive new formulas in other contexts?</p>
+		
+		<p>We suggest using a pictorial representation of a probability tree.</p>
+		<p>[insert prob tree graphic]</p>
+		<p>Here we’ve written our tree so that event A is the first split with the upper branch representing A and the lower branch representing NOT A. Then each of those branches splits into B and NOT B. We have also filled in what we know on this probability tree. P(A) is 0.55 and thus P(NOT A) is 0.45. Then the uppermost branch, which is the path in which both A and B occur, is assigned the probability for P(A AND B) of 0.25.</p>
+		<p>We are looking for the probability of the second-highest branch on the tree that represents P(A AND NOT B). Graphically, an approach immediately stands out. We know that a fundamental property of probability trees is that <b>the sum of the probability of the branches must equal the probability of reach the split</b>. Writing this down in math terms yields P(A) = P(A AND B) + P(A AND NOT B) which can be rearranged to yield our formula!</p>
+		<p>What does this formula mean intuitively? We know that either B or NOT B <b>must</b> occur. There is no third option. Therefore, if we know that A occurs 55 percent of the time, and A and B occur 25 percent of the time, we know that the other 30 percent of the time when A occurs, it <b>must</b> occur with NOT B.</p>
+    </div>
+    
+	
+	<div>
+		<button onclick="openNewPage()">Continue</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p6sub1_main_3.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 2</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 2: Expected Values cont.</h1>
+    <div>
+        <p>Suppose you are told that you will be meeting with Negotiator A. Now what is your expected payment?</p>
+		<p>Recall that you think there is a 25 percent chance they will accept your offer of $10 million, a 40 percent chance they will counteroffer $15 million which you will accept, and a 35 percent chance that they will counteroffer something higher which you will deny (and spend $0 million in this transaction).</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">$8.5 million</button>
+        <button onclick="toggleVisibility('paragraph3')">$15 million</button>
+        <button onclick="toggleVisibility('paragraph4')">$8.3 million</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">This problem asks you to compute a conditional expectation. In this case, it is the expected value of the transaction <b>given</b> that you meet with Negotiator A. A conditional expectation calculation looks a lot like a normal expectation calculation, but with the probabilities replaced with conditional probabilities. If you are having trouble, consider doing <a href=p2sub1_main.html>this</a> sub-problem to build intuition for conditional probabilities.</p>
+    <p id="paragraph2" class="hidden">Correct!</p>
+    <p id="paragraph3" class="hidden">Incorrect. Recall that the expected value is <b>not</b> the same as the "most likely" value.</p>
+    <p id="paragraph4" class="hidden">If you arrived at this answer, you probably took the simple average of the possible outcomes. Remember that expected value calculations need to incorporate the probability that outcomes occur!</p>
+	
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p3_main.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

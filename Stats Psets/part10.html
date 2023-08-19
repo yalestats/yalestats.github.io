@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <title>Topic 10</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+        .centered-figure {
+            display: flex;
+      justify-content: center;
+    }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Topic 9: Regression Hypothesis Testing </h1>
+    <div>
+       
+        <p>
+            You are a financial analyst working for a hedge fund. 
+            You have been given a dataset containing the daily closing stock prices of a company 
+            for the past year. Your task is to determine if there is a significant relationship between consumer sentiment and the company's stock prices.
+        </p>
+
+        <p>
+            The dataset contains the following variables for each of the 365 days in the past year:
+            <p>
+                <span class="mathjax">\(P\)</span> - the daily closing price of the company's stock in USD
+            </p>
+            <p>
+                <span class="mathjax">\(CS\)</span> - an index of consumer sentiment about the firm
+            </p>
+            The consumer sentiment index has been normalized so <span class="mathjax">\(CS \sim N(0,1)\)</span>. Positive values represent positive sentiment.
+        </p>
+
+        <h3>Example 2</h3>
+
+
+        <p> - Suppose that the true data generating process for stock prices <span class="mathjax">\(y\)</span> (in USD) is 
+            <span class="mathjax">$$P = 10 + 5 CS + u$$</span> 
+            where <span class="mathjax">\(u\)</span>
+            is an unobserved variable that also affects stock prices.
+            </p>
+            <p>
+                1. Using R, construct a random sample of 365 daily stock prices under the assumption that <span class="mathjax">\(u \sim N(0,1)\)</span> and 
+                <span class="mathjax">\(CS \sim N(0,1)\)</span>. Use the data generating process above to generate 
+                <span class="mathjax">\(P\)</span> for each day.
+            </p>
+            <p>
+                2. Still using R, estimate an OLS regression of stock prices <span class="mathjax">\(P\)</span> on consumer sentiment <span class="mathjax">\(CS\)</span>. This regression should contain 365 observations, one for each day. 
+            </p>
+            <p>
+                3. Interpret the coefficient on the consumer sentiment index: what does it tell us?
+            </p>
+
+            <div class="button-container">
+                <button onclick="toggleVisibility('paragraph1')">Click after completing (3)</button>
+            </div>
+            <p id="paragraph1" class="hidden"> Because <span class="mathjax">\(CS\)</span> is normalized, 
+            a one standard deviation increase in consumer sentiment leads to a <span class="mathjax">\(\hat{\beta}_1\)</span> dollar increase 
+        in the price of the company's stock.</p>
+    
+
+        <p>
+            4. Can we reject the null hypothesis that the true effect of consumer sentiment on stock prices is zero, at the 5% level? Why or why not?
+        </p>
+        
+            <div class="button-container">
+                <button onclick="toggleVisibility('paragraph2')">Yes</button>
+                <button onclick="toggleVisibility('paragraph3')">No</button>
+            </div>
+            
+            <p>
+                <i>Note:</i> For reproducibility, you should set a value for the random seed before beginning. If you are confused, please use ChatGPT to help.
+            </p>
+        
+            <p id="paragraph2" class="hidden"> <b>Great!</b> The correct null hypothesis is <span class="mathjax">\(H_0: \beta_1  = 0\)</span> 
+            and the correct alternative hypothesis is <span class="mathjax">\(H_0: \beta_1  \ne 0\) </span>. The critical value for a two-sided
+        95% hypothesis test is <span class="mathjax">\(t=1.96\)</span>, which is less than our value. When the critical value is less than the 
+        value of a test statistic, we reject the null hypothesis at the specified significance level.</p>
+        
+                 <p id="paragraph3" class="hidden"> <b>This isn't quite right.</b> The correct null hypothesis is <span class="mathjax">\(H_0: \beta_1  = 0\)</span> 
+                    and the correct alternative hypothesis is <span class="mathjax">\(H_0: \beta_1  \ne 0\) </span>. Note that this is a two-sided test, as we are 
+                     asked to test for a significant relationship rather than only a significant positive or significant negative relationship. The critical value for a two-sided
+                95% hypothesis test is <span class="mathjax">\(t=1.96\)</span>, which is less than our value. When the critical value is less than the value of a test statistic, we 
+            reject the null hypothesis at the specified significance level. </p>
+        
+
+
+    <div>
+		<button onclick="openPreviousPage()">Previous Topic: Evaluating Regression Output</button>
+		<script>
+			function openPreviousPage() {
+				window.location.href = "part8.html";
+			}
+		</script>
+	</div>
+	
+	<script>
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementsByClassName("mathjax")]);
+      </script>
+      
+</body>
+</html>

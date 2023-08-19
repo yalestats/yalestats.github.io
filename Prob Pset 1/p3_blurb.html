@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intro</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Moving to Unequal Probabilities</h1>
+    <div>
+        <p>While it is intuitive and simplest to think about cases where the probability of each outcome is equal, such as those discussed in the previously problem, many situations (like the example of a basketball game between two teams) may involve outcomes of unequal probabilities. </p>
+		
+        <p>We might think that the Lakers have a 60 percent chance of winning against the Nets or that there is a 25 percent chance that my friend is late to my birthday party. While cases like these are more complex mathematically, the same intuitions and formulas from the equal probability cases apply. Here we will explore these.</p>
+		
+    </div>
+	
+    <div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p3_main.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 5</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 5: Sums of Normals cont.</h1>
+    <div>
+		<p>An analyst sees your new plan and informs you that two of the three locations served by the hypothetical warehouse are located very close to each other. Close enough that customers often end up deciding between the two, so that a high demand shock at one location might suggest a low demand shock at the other (because all the customers have gone to the first). The analyst estimates that the covariance between demand at these two locations is -90. (Demand at the third location is independent of the other two).</p>
+		<p>Recall that demand in the three locations is distributed normally with mean 200 and standard deviation 15. Given the new information above, what is the lowest number of units that can be stocked at the warehouse while keeping the probability of running out of stock below 1 percent?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">652</button>
+        <button onclick="toggleVisibility('paragraph3')">657</button>
+        <button onclick="toggleVisibility('paragraph4')">661</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">This question is essentially a combination of <a href=p3_main.html>Question 3</a>, which asks you to find a similar probability in the single store case, and <a href=p4_main.html>the previous question</a>, in which you must determine the distribution of the sum of normally distributed random variables. Consider doing these questions again if you are struggling. The only twist in this question is that we know that two of the locations have a non-zero covariance. How does this change our calculation? Does the order in which we sum the three demand shocks together matter?</p>
+    <p id="paragraph2" class="hidden">Correct!</p>
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably made a slight error when summing the variances of two variables with a non-zero covariance. Don’t forget to double the covariance!</p>
+    <p id="paragraph4" class="hidden">If you arrived at this answer, you probably forgot to account for the fact that demand at two of the stores experiences a negative covariance.</p>
+	
+	<div>
+		<button onclick="openNewPage()">You are done!</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p5_main.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cond. Prob.</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Sub-Problem: Conditional Probability, Intuitively (cont)</h1>
+    <div>
+        <p>Out of our 20 balls, we've determined that 4 should be blue and marked, 4 should be blue and unmarked, 3 should be red and marked, and 9 should be red and unmarked</p>	
+
+		<p>If you draw a ball at random, what is the probability that you draw a marked ball?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">7/20</button>
+        <button onclick="toggleVisibility('paragraph2')">3/10</button>
+        <button onclick="toggleVisibility('paragraph3')">9/20</button>
+        <button onclick="toggleVisibility('paragraph4')">1/4</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">Correct!</p>
+	
+    <p id="paragraph2" class="hidden">Incorrect.</p>
+	
+    <p id="paragraph3" class="hidden">Incorrect.</p>
+	
+    <p id="paragraph4" class="hidden">Incorrect.</p>
+	
+	<div class="button-container">
+        <button onclick="toggleVisibility('explanation')">Show Explanation</button>
+    </div>
+	
+	<div id="explanation" class="hidden">
+		<p>In finding the probability of drawing a marked ball, we've essentially found the probability of rain from the previous problem! What steps did we follow to do this?</p>
+		<p>First, we found the probability of every outcome. We started with the unconditional probabilities we were given (whether it was a warm and cold day) and used the formula P(A AND B)=P(A)P(B|A) to find the probability of every event. For example, we wanted to find the probability P(cold AND rain), and we did so using P(cold AND rain)=P(cold)P(rain|cold). We did the same for all combination of cold/hot and rain/no rain. We did all of this implicitly when we calculated what combination of blue/red and marked/unmarked our 20 balls should be.</p>
+		<p>Second, we determined which of the four outcomes met the conditions we want ("Is it raining") and used the formula P(A OR B) = P(A) + P(B) - P(A AND B). In this case, event A was "it is a cold day and it rains" and event B was "it is a warm day and it rains". Note that P(A AND B) = 0 because it cannot be both a warm and cold day.</p>
+	</div>
+	
+	<div>
+		<button onclick="openNewPage()">Return to Main Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p4_main.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 3</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 3: Normal Distributions cont.</h1>
+    <div>
+		<p>Suppose you want to ensure that the probability of running out of stock is 1 percent or less. How many units should you stock?p>
+		<p>Recall that demand is normally distributed with mean 200 and standard deviation 15.</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">235 percent</button>
+        <button onclick="toggleVisibility('paragraph3')">165 percent</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">This problem essentially asks you to invert the calculations that we have been doing in the previous problems (if you have not done these or struggled with understanding them, consider <a href=p1_main.html>working through them slowly for practice</a>). Instead of taking a number of units and getting a probability, we have a probability and want to compute a number of units. How can we use our standard normal to do this? What’s the correct number to look up in the table?</p>
+    <p id="paragraph2" class="hidden">Correct!</p>
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably looked up the wrong number in the probability table, likely because you forgot that the probability table gives the probability for the area <b>to the left</b> of the cutoff. Here, we want to make sure that the area <b>to the right</b> contains less than 1 percent of the probability. This answer also does not pass a smell test (which you should always perform before committing to a quantitative result). If you want a low probability of running out of stock, your stock must <b>at least</b> be above the mean of demand.</p>
+	
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p4_main.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

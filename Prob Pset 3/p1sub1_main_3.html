@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Means and Variances of Random Variables</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Sub-Problem: Means and Variance of Random Variables cont.</h1>
+    <div>
+        <p>Suppose I have a random variable X that has a standard normal distribution (i.e. normal distribution with mean 0 and standard deviation 0). </p>
+		
+        <p>Given what we’ve learned about how means and variances interacted with addition and multiplication, what do you think the distribution of a random variable Y created by first multiplying X by 6 and then adding 15 would be?</p>	
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">Normal with mean 15 and standard deviation 6/button>
+        <button onclick="toggleVisibility('paragraph2')">Normal with mean 15 and standard deviation 1/button>
+        <button onclick="toggleVisibility('paragraph3')">Normal with mean 0 and standard deviation 6</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">Correct!</p>
+	
+    <p id="paragraph2" class="hidden">Incorrect. Review the rules we’ve established for how standard deviations change when multiplied.</p>
+	
+    <p id="paragraph3" class="hidden">Incorrect. Review the rules we’ve established for how means change when constants are added.</p>
+	<br>
+	<br>
+	<br>
+
+	<div class="button-container">
+        <button onclick="toggleVisibility('explanation')">Show Explanation</button>
+    </div>
+	
+	<div id="explanation" class="hidden">
+		<p>Note that while we’ve (hopefully) built a lot of intuition for how means and standard deviations move under constant multiplication and addition, we’ve left out one small detail which is that a normal distribution remains normal under these transformations. For the purposes of this course, it is sufficient to simply know that this is true without worrying about why.</p>
+		<p>Here we see how to use our rules to convert a standard normal distribution into <b>any</b> normal distribution we like, as long as we know the mean and variance. We can do the reverse as well. By <b>subtracting</b> by the correct number and <b>dividing</b> by the correct number, we can convert any normal distribution into a standard normal (which can then be looked up in our standard normal table). This is the approach we must take when solving problems involving probabilities of normal distributions!</p>
+	</div>
+	
+		
+	<div>
+		<button onclick="openNewPage()">Return to Main Problems</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p1_main.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

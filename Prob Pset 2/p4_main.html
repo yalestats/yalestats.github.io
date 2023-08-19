@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 4</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 4: Probability Calculations and Expected Values</h1>
+    <div>
+        <p>Adrian is listening to music on a playlist that he likes but does not love. Every time he finishes a song, there is a 15 percent chance that he will stop listening before the next song plays (he will listen to the first song for sure). After 5 songs, he will stop listening with certainty.</p>
+		<p>What is the expected number of songs that Adrian will listen to?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">3.70</button>
+        <button onclick="toggleVisibility('paragraph3')">2.70</button>
+        <button onclick="toggleVisibility('paragraph4')">4.54</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">This is a similar calculation to the <a href = “p1_main.html”>previous expected value question</a> in the problem set, so consider starting there if you skipped it. The main difference here is that the probabilities associated with outcomes are substantially more difficult to compute. We recommend drawing a probability tree. Because Adrian will listen to one song with certainty, this first “branch” of the tree will involve a 0.15 chance that he will stop there and the outcome will be 1 and a 0.85 chance that he will continue listening and a similar branch will follow.</p>
+    <p id="paragraph2" class="hidden">Correct!</p>
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably forgot to account for the one song that Adrian listens to for sure.</p>
+    <p id="paragraph4" class="hidden">Incorrect.</p>
+	
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p5_main.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

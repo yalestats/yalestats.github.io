@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expected Value</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Sub Problem: Expected Value</h1>
+    <div>
+        <p>Let’s work through an example to see exactly how the expected value formula works.</p>
+		<p>Suppose you have a bag with three balls and each ball is labeled with a number. Let’s say we have balls labeled “0”, “4”, and “5”. The expect values asks us “If we were to draw a ball at random, what is the average value of the number written on the ball that we would draw?”.</p>
+		<p>What is the expected value of the number written on the ball that we draw?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">3.0</button>
+        <button onclick="toggleVisibility('paragraph2')">3.3</button>
+		<button onclick="toggleVisibility('paragraph3')">The expected value can be either 0, 4, or 5</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">Correct!</p>
+    <p id="paragraph2" class="hidden">Incorrect.</p>
+	<p id="paragraph3" class="hidden">If you chose this answer, you probably are still relying on the (incorrect) intuition that the expected value of something is the most likely outcome (or, in this case, any of the three equally likely outcomes). Refer back to the definition of the expected value above and in your notes.</p>
+
+	<div>
+		<button onclick="openNewPage()">Continue</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p1sub1_main_2.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

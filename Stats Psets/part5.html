@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <title>Topic 5</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+        .centered-figure {
+            display: flex;
+      justify-content: center;
+    }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Topic 5: The p-value</h1>
+    <div>
+        <p>In the previous section, we used the Central Limit Theorem to show that the t-statistic is approximately normal distributed when 
+            <span class="mathjax">\(N>30\)</span>. Now we'll use this fact to construct p-values, an important building block of hypothesis testing.
+            So what is the p-value?
+            </p>
+            <p><b>A p-value is the probability of obtaining a 
+                test statistic at least as extreme as the one you calculated under the assumption that the null hypothesis is true.</b> </p> 
+            <p>
+                We use the t-statistic to construct the p-value. How? Suppose you calculate the t-statistic for some sample average. You call 
+                this t-statistic <span class="mathjax">\(\hat{t}\)</span>.
+            </p>
+
+            <p>
+                a. The p-value for a one-sided right tail test is given by 
+                <div class="centered-figure">
+                    <figure>
+                        <img src="figures/right_tail.png" alt="right">
+                        <figcaption><b>Figure:</b> one-sided right tail hypothesis test</figcaption>
+                      </figure>
+                    </div>
+                
+            </p>
+
+            <p>
+                b. The p-value for a one-sided left tail test is given by
+                <div class="centered-figure">
+                    <figure>
+                        <img src="figures/left_tail.png" alt="left">
+                        <figcaption><b>Figure:</b> one-sided left tail hypothesis test</figcaption>
+                      </figure>
+                    </div>
+                
+            </p>
+
+            <p>
+                c. The p-value for a two-tail test is given by
+                <div class="centered-figure">
+                    <figure>
+                        <img src="figures/two_sided.png" alt="two_sided">
+                        <figcaption><b>Figure:</b> two-tail hypothesis test </figcaption>
+                      </figure>
+                    </div>
+                
+            </p>
+
+            <p>
+                Because the t-statistic is approximately normally distributed, we know that
+                <span class="mathjax">$$\Pr(t \le \hat{t}) = \Phi(\hat{t})$$</span> where <span class="mathjax">\(\Phi(\cdot)\)</span>
+                is the standard normal CDF. In practice, you will use R or other statistical software to calculate <span class="mathjax">\(\Phi(\hat{t})\)</span> 
+                and find p-values.
+
+            </p>
+
+            <p>
+            One last tip. If the use of a conditional probability is a little confusing in the equations above, it may be helpful to recall the formula for a t-statistic. The formula is given by
+            <span class="mathjax">$$\hat{t} = \frac{\overline{X}-\mu}{s/\sqrt{N}}$$</span>
+            Notice that <span class="mathjax">\(\overline{X}\)</span>, <span class="mathjax">\(s\)</span>, and 
+            <span class="mathjax">\(N\)</span> are all features of the sample data. So what is <span class="mathjax">\(\mu\)</span>? It
+            is the true mean under the assumption that the null hypothesis <span class="mathjax">\(H_0\)</span> is true. In fact, we <b>cannot</b> calculate a test statistic and perform a hypothesis test 
+            unless the null hypothesis is assumed to be true. 
+        </p>
+
+            <h3>Example 4</h3>
+		
+        <p>- To illustrate this ideas, let's return to your friend choosing between investment banking (firm A) and software engineering (firm B). Remember that starting salaries at firm A 
+            are approximately normally distributed with mean <span class="mathjax">\(\mu = 130,000\)</span> and standard deviation  <span class="mathjax">\(\sigma = 30,000\)</span> 
+            and starting salaries at firm B are approximately normally distributed with mean  <span class="mathjax">\(\mu = 120,000\)</span> and 
+            standard deviation <span class="mathjax">\(\sigma = 20,000\)</span>. As before, these will be our data generating processes.
+            </p>
+            <p>
+                1. Using R, construct a random sample of 100 salaries from each of the two firms (200 total salaries). 
+                This represents the data your friend observes on Glassdoor. 
+                Calculate the test statistic and p-value for the difference in mean salaries between the two firms. 
+            </p>
+            <p>
+                2. Now take this dataset of 200 salaries and randomly divide it into 2 groups of 100. 
+                Calculate the test statistic for the difference in mean salaries between these two groups of 100. 
+                Repeat this process 500 times. 
+                What does this accomplish? You are simulating test statistics for the case when the 
+                difference in average salaries in the two firm samples is only due to chance. Equivalently, 
+                these simulated test statistics are calculated under the assumption that the null hypothesis is true. 
+            </p>
+            <p>
+            3. Finally, calculate the share of iterations (i.e. <span class="mathjax">\(\frac{\#}{500}\)</span> ) where the value of the test statistic 
+            is greater than the test statistic in the original dataset of 200 salaries. 
+            This proportion is a simulated p-value. Compare this result with the p-value from the original sample. Are they approximately the same?
+            </p>
+    </div>
+
+
+<div class="button-container">
+    <button onclick="toggleVisibility('paragraph5')">Click when finished</button>
+</div>
+
+<p>
+    <i>Note:</i> For reproducibility, you should set a value for the random seed before beginning. If you are confused, please use ChatGPT to help.
+    </p>
+
+<p id="paragraph5" class="hidden"> The simulated p-value and sample p-value should be about the same. The reason is that the simulated p-value is the 
+    empirical probability of observing an outcome at least as extreme as the one you got in the original sample conditional 
+     on the null hypothesis being true. That's just the empirical counterpart to the definition of a p-value! </p>
+    <div>
+		<button onclick="openPreviousPage()">Previous Topic: Test Statistics</button>
+		<script>
+			function openPreviousPage() {
+				window.location.href = "part4.html";
+			}
+		</script>
+	</div>
+
+	<div>
+		<button onclick="openNewPage()">Next Topic: Performing the Hypothesis Test</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "part6.html";
+			}
+		</script>
+	</div>
+	
+	<script>
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementsByClassName("mathjax")]);
+      </script>
+      
+</body>
+</html>

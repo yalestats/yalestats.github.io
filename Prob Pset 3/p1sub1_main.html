@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Means and Variances of Random Variables</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Sub-Problem: Means and Variance of Random Variables</h1>
+    <div>
+        <p>To understand the intuition underlying how to compute probabilities for random normal variables, we need to understand how random variable change when they are scaled (multiplied by a constant number) and shifted (added to a constant number). This sub-problem will work through some examples to build this intuition.</p>
+		
+        <p>Suppose you have a random variable X that is equal to 1 with probability 50 percent, 2 with probability 25 percent, and 4 with probability 25 percent. What is the expected value of X? What is the variance of X?</p>		
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">2, 1.5</button>
+        <button onclick="toggleVisibility('paragraph2')">1, 1.5</button>
+        <button onclick="toggleVisibility('paragraph3')">3, 1.5</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">Correct!</p>
+	
+    <p id="paragraph2" class="hidden">If you arrived at this answer, you probably multiplied a few numbers incorrectly.</p>
+	
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably multiplied a few numbers incorrectly.</p>
+	<br>
+	<br>
+	<br>
+	<div>
+        <p>Now suppose that we are going to create a new random variable Y. To get the outcome for any draw of this random variable, we are going to make a draw from X, add 2 to the result, and call this our draw of Y. </p>
+		
+        <p>What is the expect value of Y? What is the variance of Y?</p>		
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph4')">4, 1.5</button>
+        <button onclick="toggleVisibility('paragraph5')">2, 1.5</button>
+        <button onclick="toggleVisibility('paragraph6')">0, 1.5</button>
+    </div>
+    
+    <p id="paragraph4" class="hidden">Correct!</p>
+	
+    <p id="paragraph5" class="hidden">If you arrived at this answer, you probably did not account for the 2 that will be added to each draw of X.</p>
+	
+    <p id="paragraph6" class="hidden">If you arrived at this answer, you probably subtracted 2 from each draw of X rather than adding.</p>
+	<br>
+	<br>
+	<br>
+	<div class="button-container">
+        <button onclick="toggleVisibility('explanation')">Show Explanation</button>
+    </div>
+	
+	<div id="explanation" class="hidden">
+		<p>Did you notice that the expected value of Y was exactly two greater than the expected value of X and that the variance (and thus standard deviation) was the same? This is not a coincidence! We could have added 100 or subtracted 15 (i..e added -15) and the same result would occur: the expected value would “shift” according to the number that we added and the variance would be unchanged.</p>
+		<p>If we think a little bit about the geometry/visual of what is going on, this result become intuitive. When we added a number, say 4, to a random variable, we are “shifting” all the possible outcome 4 “spaces” to the right. This increases the expected value. But because we’ve shifted <b>all</b> outcomes by the same amount, we haven’t changed the spread of the random variable at all, so the variance remains unchanged.</p>
+	</div>
+	
+		
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p1sub1_main_2.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

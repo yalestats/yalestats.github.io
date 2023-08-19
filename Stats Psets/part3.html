@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <title>Topic 3</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Topic 3: Null and Alternative Hypotheses</h1>
+    <div>
+        <p>We often want to know the relationship between two population parameters. 
+            Does an investment banking analyst make more on average than a software engineer? 
+            Is the average caffeine content of a cup of coffee from McNay Cafe less than 100 mg? 
+            </p> 
+            
+            <p>Even if we collect data on the salaries of every investment banking analyst and software engineer 
+                or every cup of coffee ever sold at McNay Cafe, 
+                we still do not observe the population parameters that we want to know about. 
+                Why is this? Because every individual’s salary or cup of coffee is a random variable that 
+                is drawn from an underlying "true" model or data generating process. Ultimately, when we 
+                ask about a population parameter we are asking about a feature of this underlying model.
+        </p> 
+        <p>
+            The goal of any hypothesis test is to make an inference about these unknown 
+            population parameter(s) using sample data. 
+            Stating the right hypotheses can be tricky - we will walk through two examples below.
+        </p>
+
+            <h3>Example 1</h3>
+		
+        <p>- You watched a convincing TikTok suggesting that your daily caffeine intake should 
+            exceed 200 mg to reach optimal human performance. You only drink 2 
+            daily cups of coffee from McNay Cafe, and you become worried that you're not 
+            drinking enough caffeine. To examine this using data on the amount of caffeine in each 
+            cup of coffee served at McNay, you begin by writing out the correct null (<span class="mathjax">\(H_0\)</span>) and alternative (<span class="mathjax">\(H_1\)</span>) hypotheses. What are they?
+            </p>
+    </div>
+
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')"><span class="mathjax">\(H_0: \mu < 100 \text{ and } H_1: \mu \ge 100 \)</span></button>
+        <button onclick="toggleVisibility('paragraph2')"><span class="mathjax">\(H_0: \mu \ge 100 \text{ and } H_1: \mu < 100 \)</span></button>
+    </div>
+
+    <p>
+        <i>Note:</i> Let <span class="mathjax">\(\mu\)</span> denote the population average caffeine content in a cup of coffee at McNay.
+        </p>
+
+    <p id="paragraph1" class="hidden"><b>This is not correct.</b> Remember, it is helpful to appeal to your research 
+        question when writing the null and alternative hypotheses. Our research question is the following: does McNay coffee contain less than 100 mg of caffeine? 
+        We can see that the alternative hypothesis in this selection does not reflect this question.</p>
+        <p id="paragraph2" class="hidden"><b>This is correct!</b></p>
+
+    <h3>Example 2</h3>
+		
+    <p>- You have a friend who is deciding between job offers from an investment bank A 
+        and a tech company B. They prefer the culture at B 
+        but are concerned that A might offer higher wages. To explore this using data on wages, you 
+        begin by writing out the correct null and alternative hypotheses. What are they?
+        </p>
+</div>
+
+<div class="button-container">
+    <button onclick="toggleVisibility('paragraph3')"><span class="mathjax">\(H_0: \mu_A \le \mu_B \text{ and } H_1: \mu_A > \mu_B\)</span></button>
+    <button onclick="toggleVisibility('paragraph4')"><span class="mathjax">\(H_0: \mu_A > \mu_B \text{ and } H_1: \mu_A le \mu_B\)</span></button>
+</div>
+
+<p>
+    <i>Note:</i> Let <span class="mathjax">\(\mu_A\)</span> denote the population average salary at firm A and 
+    <span class="mathjax">\(\mu_B\)</span> denote the population average salary at firm B.
+    </p>
+
+<p id="paragraph3" class="hidden"><b>This is correct!</b></p>
+    <p id="paragraph4" class="hidden"><b>This is not correct.</b> Remember, it is helpful to appeal to your research 
+        question when writing the null and alternative hypotheses. Our research question is the following: does A offer higher wages than B? 
+        We can see that the alternative hypothesis in this selection does not reflect this question.</p>
+
+    <p>
+        A final word on constructing null and alternative hypotheses: two helpful hints are (1) the null hypothesis always contains an equality (either <span class="mathjax">\(=\)</span>, <span class="mathjax">\(\le\)</span>, or <span class="mathjax">\(\ge\)</span>) and 
+        (2) the alternative hypothesis is the claim for which we are seeking evidence (it would be bad science to fail to reject this claim just because the data doesn't convincingly suggest the opposite relationship holds). 
+    </p>
+
+    <p>
+        We will discuss these ideas in more detail in the next few sections as we review how to actually perform hypothesis tests using sample data.
+    </p>
+    <div>
+		<button onclick="openPreviousPage()">Previous Topic: Confidence Intervals</button>
+		<script>
+			function openPreviousPage() {
+				window.location.href = "part2.html";
+			}
+		</script>
+	</div>
+
+	<div>
+		<button onclick="openNewPage()">Next Topic: Test Statistics</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "part4.html";
+			}
+		</script>
+	</div>
+	
+	<script>
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementsByClassName("mathjax")]);
+      </script>
+      
+</body>
+</html>

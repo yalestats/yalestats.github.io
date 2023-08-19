@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bayes Rule</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Sub Problem: Bayes Rule, Intuitively</h1>
+    <div>
+        <p> Consider a bag of 20 balls. A ball can be blue or red, and it can be marked or unmarked</p>
+		
+        <p>Of the 20 balls, 4 are blue and marked, 4 are blue and unmarked, 3 are red and marked, and 9 are red and unmarked.</p>
+		
+		<p>If we draw a ball at random and it turns out to be marked, what is the probability that it is red?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph2')">3/7</button>
+        <button onclick="toggleVisibility('paragraph3')">3/20</button>
+        <button onclick="toggleVisibility('paragraph4')">12/20</button>
+    </div>
+    	
+    <p id="paragraph2" class="hidden">Correct!</p>
+	
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably forgot that the conditional probability formula must divide by the unconditional probability of the conditional event occurring (P(A|B) = P(A AND B)/P(B), and we must not forget to divide by B). This is because when we condition on B, we effectively eliminate all outcomes in which B does not occur. Thus our conditional probability must be “normalized” by the probability that B occurs.</p>
+	
+    <p id="paragraph4" class="hidden">If you arrived at this answer, you probably did not realize that the question asks for a conditional probability. Rather than asking “what is the probability that you draw a red ball ”, this question asks us to compute the probability that we draw a marked ball *given that we know we drew a marked ball*.</p>
+	
+	<div class="button-container">
+        <button onclick="toggleVisibility('explanation')">Show Explanation</button>
+    </div>
+	
+	<div id="explanation" class="hidden">
+		<p>In finding the probability of drawing a red ball, we've essentially found the probability of that it was a warm day! The blue and red balls represent cold and warm days respectively while the marked and unmarked ball represent days where it rains or does not rain (you can verify for yourself that this yields the same probabilities as in the main problem). We applied the formula for conditional probability P(A|B)=P(A AND B)/P(B) without knowing it.</p>
+		<p>When we found the probability that the ball we drew was red conditional on it being marked, we did so by considering how many red balls there were (3) out of the total number of marked balls (7)</p>
+		<p>This maps almost one-for-one into our formula P(A|B)=P(A AND B)/P(B). Here we want to find P(red AND marked)/P(marked). The numerator is 3/20 as 3 of the 20 total balls are marked. The denominator is 7/20 as 7 of the balls are marked. The "20s" cancel and we get 3/7!</p>
+		<p>While it's intuitive to solve this problem with ball counting which makes the formula P(A|B)=P(A AND B)/P(B) seem obsolete, we can see that this formula is much more general. It can be applied to situations that cannot easily be cast as ball-counting problems. But the intuition behind the formula remains the same! To find the probability of A condition on B, we first need to find the probability that both A and B occur (after all, our conditional probability assumes that B has occured i.e. we have drawn a red ball). But after finding this probability, we need to "normalize" by the probability of B occuring (since our conditional probability also assumes that B occurs).</p>
+	</div>
+		
+	<div>
+		<button onclick="openNewPage()">Return to Main Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p5_main.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 5</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 5: Rain, Temperature, and Umbrellas cont.</h1>
+    <div>
+        <p>We are trying to decide if we should bring an umbrella with us on our way to class. From experience living in New Haven, we have an idea of the chance of rain based on the temperature during the midday. </p>
+		
+        <p>There is a 40 percent chance that the midday temperature will be below 65 degrees and a 60 percent chance that it will be above 65 degrees. If the temperature is below 65 degrees, we think that there is a 50 percent chance that it will rain. If it is above, we think that there is a 25 percent chance it will rain.</p>
+		
+		<p>If it rains, what is the probability that it was a warm day?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">43 percent</button>
+        <button onclick="toggleVisibility('paragraph3')">13 percent</button>
+        <button onclick="toggleVisibility('paragraph4')">60 percent</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">The clause "if it rains" is a clue that we need to compute a conditional probability P(A|B). We should start by thinking about what probabilities we need to know to compute this. If you are struggling to figure out how to approach this problem or have difficultly remembering or understanding the formulas involve, consider working through <a href="p5sub1_main.html">this sub-problem</a> to gain some understanding.</p>
+	
+    <p id="paragraph2" class="hidden">Correct!</p>
+	
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably forgot that the conditional probability formula must divide by the unconditional probability of the conditional event occurring (P(A|B) = P(A AND B)/P(B), and we must not forget to divide by B). This is because when we condition on B, we effectively eliminate all outcomes in which B does not occur. Thus our conditional probability must be “normalized” by the probability that B occurs. If this is difficult to understand, consider working through the subquestion under “I don't know where to start” above.</p>
+	
+    <p id="paragraph4" class="hidden">If you arrived at this answer, you probably did not realize that the question asks for a conditional probability. Rather than asking “what is the probability that it was a warm day”, this question asks us to compute the probability that it was a warm day *given that we know that it rained that day*. Because the probability of rain depends on whether the day was cold or warm, knowing that it rained provides some additional information that can be used to update our guess for the probability that the day was warm.</p>
+		
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p6_main.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

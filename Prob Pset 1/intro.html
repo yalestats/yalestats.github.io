@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intro</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Introduction</h1>
+    <div>
+        <p>Many things in the world are uncertain. If I flip a typical coin, it is unknown (at least at the time of the toss) 
+		whether it will land on heads or tails. As a more complex example, if the Lakers and the Nets (two basketball teams in the NBA) 
+		are playing against each other tonight, it is unknown who will win. <b>Probability</b> gives us a coherent and well-defined way to talk 
+		about these uncertain outcomes.</p>
+		
+        <p>The simplest type of event are those in which all outcomes are equally likely to occur. Examples include rolling a 
+		six-sided die (each number 1 through 6 is equally likely to occur) or drawing from a well-shuffled deck of cards 
+		(each of the 52 cards has a 1 out of 52 chance of being drawn).</p>
+		
+        <p>Starting from this building block, we will do some sample problems to build intuition for how the probability of different events can be combined.</p>
+    </div>
+	
+    <div>
+		<button onclick="openNewPage()">Continue to Problem 1</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p1_main.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

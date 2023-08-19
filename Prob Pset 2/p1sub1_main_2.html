@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expected Value</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Sub Problem: Expected Value cont.</h1>
+    <div>
+        <p>How did we compute the expected value just now? If we followed the definition from class, we probably multiplied each outcome value by the probability of occurring which is equal to 1/3 and performed the calculation 1/3*0 + 1/3*4 + 1/3*5.</p>
+		<p>Another way to arrive at the correct answer that you may have been led to by your intuition was to average the numbers on the three balls and compute (0+4+5)/3. This gives the correct answer, and it’s easy to see that it is equivalent to the calculation performed above. If you followed your intuition, this is probably what you did.</p>
+		<p>In fact, an average is exactly the same thing as an expected value, and we can build on this intuition to compute expected values in more complex environments.</p>
+		<p>Suppose you add a “4” ball to the previous bag of balls so that we now have a bag with four balls numbered “0”, “4”, “4”, and “5”. What is the expect value of a ball we draw?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">3.25</button>
+        <button onclick="toggleVisibility('paragraph2')">3.0</button>
+		<button onclick="toggleVisibility('paragraph3')">4.0</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">Correct!</p>
+    <p id="paragraph2" class="hidden">Incorrect. Note that we have added an additional ball to the bag that is <b>larger</b> than the previous average (which was three). Thus we should expect the new expected value to increase.</p>
+	<p id="paragraph3" class="hidden">If you arrived at this answer, you are still relying on the intuition that the expected value is the “most likely” value. This is <b>not</b> the case. We recommend referring to your notes on expected values.</p>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="button-container">
+        <button onclick="toggleVisibility('explanation')">Show explanation</button>
+    </div>
+	<p id="explanation" class="hidden">Here if we compute the average, we make the calculation (0+4+4+5)/4. Using the expected value formula where we multiply each outcome by its probability of occurring, we would make the calculation (1/4)*0 + (1/2)*4 + (1/4)*5. Do you see how these are the same calculation? The expected value formula simply gives us an <b>easier</b> way to compute the average in a situation where we cannot simply sum and divide (like in the first formula).</p>
+	
+	
+	<div>
+		<button onclick="openNewPage()">Continue</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p1sub1_main_3.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

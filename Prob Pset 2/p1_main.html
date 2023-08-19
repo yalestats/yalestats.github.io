@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 1</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 1: Expected Values</h1>
+    <div>
+        <p>You are looking to hire a company for important technical services and are negotiating with them on a price. Based on past interactions, you have a reasonable idea of how negotiations will go, but you don’t know which negotiator they will send.</p>
+        <p>If they send Negotiator A, you plan to offer $10 million for a two year contract. You think there is a 25 percent chance they will accept this offer, a 40 percent chance they will counteroffer $15 million which you will accept, and a 35 percent chance that they will counteroffer something higher which you will deny (there will be no transaction; count this as spending $0 million).</p>
+        <p>If they send Negotiator B, you plan to offer $15 million. You think there is a 70 percent chance that they accept this and a 30 percent chance that they balk and no deal is made (there will be no transaction).</p>
+		<p>If you think there is a 50 percent chance that you meet with Negotiator A and a 50 percent chance you meet with Negotiator B, what is the expected amount you will spend?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">$9.5 million</button>
+        <button onclick="toggleVisibility('paragraph3')">$8.5 million</button>
+        <button onclick="toggleVisibility('paragraph4')">$10.5 million</button>
+		<button onclick="toggleVisibility('paragraph5')">$15 million</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">This is a complex problem that is asking you to compute the <b>expected value</b> of your spending (in this transaction). We recommend that you consult your notes and look for the definition of expected value. If you are having trouble making sense of the definition or figuring out how to apply it to this problem, consider doing <a href=p1sub1_main.html>this sub-problem</a> to work through an intuition-building example. In order to compute the relevant probabilities, we recommend drawing a probability tree.</p>
+    <p id="paragraph2" class="hidden">Correct!</p>
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably computed the expected value of spending for Negotiator A. But remember that there is also uncertainty over which negotiator is sent that must be accounted for!</p>
+    <p id="paragraph4" class="hidden">If you arrived at this answer, you probably computed the expected value of spending for Negotiator B. But remember that there is also uncertainty over which negotiator is sent that must be accounted for!</p>
+	<p id="paragraph5" class="hidden">If you arrived at this answer, you probably misunderstood the definition of expected value and selected the most likely outcome. Remember that the expected value asks us how much we will pay <b>on average</b>, not what amount we are most likely to pay. Consider doing <a href=p1sub1_main.html>this sub-problem</a> to explore this intuition.</p>
+	
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p2_main.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

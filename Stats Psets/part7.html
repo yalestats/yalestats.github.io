@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <title>Topic 7</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+        .centered-figure {
+            display: flex;
+      justify-content: center;
+    }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Topic 7: Introduction to Regression </h1>
+    <div>
+       
+        <p>
+            Suppose the "true" model or data generating process for noise pollution <span class="mathjax">\(y\)</span> on a street in New Haven 
+            is given by 
+            <span class="mathjax">$$y = \beta_0 + \beta_1 x + u$$</span> 
+            where <span class="mathjax">\(x\)</span> is the number of motorcycles and 4-wheelers being driven on the street and <span class="mathjax">\(u\)</span>
+            is a random variable that also affects noise pollution.
+        </p>
+        <p>
+            Given data on <span class="mathjax">\(x\)</span> and <span class="mathjax">\(y\)</span>, how can we 
+            estimate <span class="mathjax">\(\beta_0 \)</span> and <span class="mathjax">\(\beta_1 \)</span>?
+            If we are willing to assume that (1) <span class="mathjax">\(E[u|x] = E[u]\)</span> and (2) <span class="mathjax">\(E[u] = 0\)</span>, we 
+            can use OLS! The first assumption (1) is known as <b>conditional independence</b> and implies that any other variables that affect noise pollution 
+            on New Haven streets (e.g. music) aren't 
+            systematically related to the number of motorcycles and 4-wheelers being driven on that street. The second assumption (2) 
+            is just a normalization.
+        </p>
+
+        <p>
+
+        </p>
+
+<h3>Example 1</h3>
+
+<p>- We are told that the data generating process for noise pollution <span class="mathjax">\(y\)</span> (in dbA, or human-adjusted decibels) is 
+    <span class="mathjax">$$y = 10x + 5e$$</span> 
+    where <span class="mathjax">\(x\)</span> is the (observed) number of motorcycles and 4-wheelers being driven on the street and <span class="mathjax">\(e\)</span>
+    is an unobserved variable that also affects noise pollution.
+    </p>
+    <p>
+        1. Using R, construct a random sample of 100 neighborhoods under the assumption that <span class="mathjax">\(e \sim N(0,1)\)</span> and 
+        <span class="mathjax">\(x \sim U(0,20)\)</span>. Use the data generating process above to generate 
+        <span class="mathjax">\(y\)</span> for each neighborhood.
+    </p>
+    <p>
+        2. Still using R, estimate an OLS regression of noise pollution <span class="mathjax">\(y\)</span> on the number of motorcycles and 4-wheelers on a street <span class="mathjax">\(x\)</span>. This regression should contain 100 observations, one for each neighborhood. 
+        Are the estimated coefficients close to <span class="mathjax">\(\hat{\beta}_0 = 0\)</span> and <span class="mathjax">\(\hat{\beta}_1 = 10\)</span>?
+    </p>
+
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">Yes</button>
+        <button onclick="toggleVisibility('paragraph2')">No</button>
+    </div>
+    
+    <p>
+        <i>Note:</i> For reproducibility, you should set a value for the random seed before beginning. If you are confused, please use ChatGPT to help.
+    </p>
+
+    <p id="paragraph1" class="hidden"> <b>Great!</b> Because <span class="mathjax">\(E[e|x] = E[e]\)</span> and <span class="mathjax">\(E[e] = 0\)</span>, 
+    the estimated values should be close to the true values from the data generating process. The reason it isn't exact is that the data is a finite sample. </p>
+
+         <p id="paragraph2" class="hidden"> <b>This isn't quite right.</b> Notice that <span class="mathjax">\(E[e|x] = E[e]\)</span> and <span class="mathjax">\(E[u] = 0\)</span>
+            in this setting, so the estimated values should be close to the true values from the data generating process. The only reason it isn't exact is that the data is a finite sample.  </p>
+
+
+    <div>
+		<button onclick="openPreviousPage()">Previous Topic: Performing the Hypothesis Test</button>
+		<script>
+			function openPreviousPage() {
+				window.location.href = "part6.html";
+			}
+		</script>
+	</div>
+
+	<div>
+		<button onclick="openNewPage()">Next Topic: Evaluating Regression Output</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "part8.html";
+			}
+		</script>
+	</div>
+	
+	<script>
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementsByClassName("mathjax")]);
+      </script>
+      
+</body>
+</html>

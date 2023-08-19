@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 3</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Problem 3: Variances</h1>
+    <div>
+        <p>Suppose you are meeting with Negotiator A. Recall that you think there is a 25 percent chance they will accept your offer of $10 million, a 40 percent chance they will counteroffer $15 million which you will accept, and a 35 percent chance that they will counteroffer something higher which you will deny (and spend $0 million in this transaction).</p>
+		<p>Unfortunately, because you don’t know the exact amount of the transaction, you don’t know how much liquidity to set aside to make the payment. A better understanding of the probability distribution of the potential payment might help you decide how much liquidity to reserve. What is the variance of the payment in this transaction?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+        <button onclick="toggleVisibility('paragraph2')">$14,250,000,000,000,000</button>
+        <button onclick="toggleVisibility('paragraph3')">$115,000,000,000,000,000</button>
+        <button onclick="toggleVisibility('paragraph4')">$15,000,000,000,000,000</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">The variance of a random variable is just a special expected value calculation. You can try to remember how to compute a variance by thinking of it as computing the “expected spread” of a variable. If you can’t remember how to compute it, consider checking your notes to find the formula. [probably put a sub-problem here, but need to know common errors/difficulties]</p>
+    <p id="paragraph2" class="hidden">Correct!</p>
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably forget that you need to subtract the mean from each term in the variance before you square them. This is necessary because we want the variance to describe the spread “around” the mean. Thus we must “recenter” all the data at the mean.</p>
+    <p id="paragraph4" class="hidden">Incorrect.</p>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<div>
+		<p>The potential answers above are all extremely large. Try to think about why this is and what tool we have to think about the variance in more intuitive units, then click the button below to read our explanation.</p>
+	</div>
+	
+	<div class="button-container">
+        <button onclick="toggleVisibility('explanation')">Show explanation</button>
+    </div>
+	<p id="explanation" class="hidden">The numbers are all so large because the variance is inherently in “square” units of whatever we are working with. In this problem, we are working in units of millions of dollars, so the variance is described in millions of millions of dollars. Because a million dollars is a big unit, these mechanically leads to a massive variance, even if the spread of the data is small. Thus we often use the <b>standard deviation</b>, which is the square root of variance, and is described in units that are comparable to the mean.</p>
+	
+	<div>
+		<button onclick="openNewPage()">Next Problem</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p4_main.html";
+			}
+		</script>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Unknown Probs.</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Sub-Problem: Useful Approaches for Finding Unknown Probabilities</h1>
+    <div>
+        <p>Consider two not-independent events A and B and the following probabilities:
+			<ul>
+				<li>P(A) = 0.55</li>
+				<li>P(B) = 0.3</li>
+				<li>P(A AND B) = 0.25</li>
+			</ul>
+		</p>	
+
+		<p>Suppose we want to find the probability P(A AND NOT B). So far (in this series of problems) we’ve used the conditional probability formula when we’ve needed to find joint probabilities. But here it is not useful as we don’t have enough information to solve either P(A AND NOT B) = P(A)*P(NOT B|A) or P(A AND NOT B) = P(B)*P(A|NOT B).</p>
+		
+		<p>Below are three *valid* reformulations of P(A AND NOT B) (be sure you understand why each is valid). Which looks the most promising, given the probabilities that we know?</p>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph1')">P(A) - P(A AND B)</button>
+        <button onclick="toggleVisibility('paragraph2')">P(A) + P(NOT B) – P(A OR NOT B)</button>
+        <button onclick="toggleVisibility('paragraph3')">P(NOT B) – P(NOT A AND NOT B)</button>
+    </div>
+    
+    <p id="paragraph1" class="hidden">Correct!</p>
+	
+    <p id="paragraph2" class="hidden">Incorrect.</p>
+	
+    <p id="paragraph3" class="hidden">Incorrect.</p>
+	
+	
+	
+	<div>
+		<button onclick="openNewPage()">Continue</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "p6sub1_main_2.html";
+			}
+		</script>
+	</div>
+	
+	
+</body>
+</html>

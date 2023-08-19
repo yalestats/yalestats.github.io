@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <title>Topic 6</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+        .centered-figure {
+            display: flex;
+      justify-content: center;
+    }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Topic 6: Performing the Hypothesis Test</h1>
+    <div>
+        <p>The last (and perhaps most important) component of 
+            hypothesis testing is the actual test itself. This can take one of two forms, with the first being the most common:
+            </p> 
+
+            <p>
+            1. Comparing the p-value to the significance level. We commonly use <span class="mathjax">\(\alpha\)</span> to represent the significance level.
+            <p>
+                a. If the p-value is less than the significance level, you reject the null hypothesis.
+            </p>
+            <p>
+                b. If the p-value is greater than the significance level, you fail to reject the null hypothesis because of insufficient evidence to support the alternative hypothesis.
+            </p>
+            </p>
+
+            <p>
+                2. Comparing the test statistic to a critical value. 
+                <p>
+                    a. If the test statistic is greater than the critical value, you reject the null hypothesis.
+                </p>
+                <p>
+                    b. If the test statistic is less than the critical value, you fail to reject the null hypothesis because of insufficient evidence to support the alternative hypothesis.
+                </p>
+            
+            <p>
+                Before going on to an application, let's define the significance level and critical value.
+        </p> 
+        <p>
+            The significance level of a hypothesis test is a value chosen by you, the analyst, before performing any data analysis. 
+            The most common are <span class="mathjax">\(\alpha = 0.01, 0.05, \text{ and } 0.1\)</span>. The significance level is the maximum 
+            probability you allow for committing a Type I error, which is the probability of rejecting the null hypothesis when it is actually true. 
+            This case is highlighted in red in the table below.
+            <div class="centered-figure">
+                <figure>
+                    <img src="figures/type1.png" alt="crit_image">
+                    <figcaption><b>Figure:</b> <span class="mathjax">\(\alpha = 0.1\)</span> and 
+                        <span class="mathjax">\(\alpha = 0.05\)</span> critical values</figcaption>
+                  </figure>
+                </div>
+            <p>If you choose a significance level of <span class="mathjax">\(\alpha = 0.05\)</span>, 
+                it means you are willing to accept a 5% chance of rejecting the null hypothesis when it is true (a 5% chance of a Type I error). </p>
+        </p>
+        <p>
+            The critical value is the value of the test statistic used in hypothesis testing to determine whether you should 
+            reject or fail to reject the null hypothesis. It depends on the chosen significance level <span class="mathjax">\(\alpha\)</span>. 
+            A smaller <span class="mathjax">\(\alpha\)</span> will result in a larger critical value. This is shown below for a one-sided hypothesis 
+            with <span class="mathjax">\(\alpha = 0.1\)</span> and <span class="mathjax">\(\alpha = 0.05\)</span>. 
+            The <span class="mathjax">\(\alpha\)</span> values are the shaded regions to the right of the critical values.
+            
+            <div class="centered-figure">
+            <figure>
+                <img src="figures/critical_value.png" alt="crit_image">
+                <figcaption><b>Figure:</b> <span class="mathjax">\(\alpha = 0.1\)</span> and 
+                    <span class="mathjax">\(\alpha = 0.05\)</span> critical values</figcaption>
+              </figure>
+            </div>
+        </p>
+        <p>
+            In practice, you can find the critical values using R or other statistical software.
+        </p>
+        <p>
+            Now that we have all the pieces in order, we can work through a full hypothesis test. 
+        </p>
+
+            <h3>Example 5</h3>
+		
+        <p>- You are hired as a consultant for a firm that wants to know if software 
+            developers who work from home (group 1) are not as productive as software developers 
+            who come into the office (group 2). They ask you to perform a statistical test at the 5% significance 
+            level to verify whether this is the case. To perform the analysis, you are given the following data on software 
+            developer productivity for these two groups, where productivity is measured as the number of code commits per day. 
+            </p>
+
+            <div class="centered-figure">
+                <figure>
+                    <img src="figures/data.png" alt="data">
+                  </figure>
+                </div>
+
+            <p>
+            i. What are the correct null and alternative hypotheses? Let <span class="mathjax">\(\mu_1\)</span> denote the population 
+            average productivity of software developers in group 1 and <span class="mathjax">\(\mu_2\)</span> denote the population 
+            average productivity of software developers in group 2.
+            </p>
+    </div>
+
+
+<div class="button-container">
+    <button onclick="toggleVisibility('paragraph1')"> <span class="mathjax">\(H_0: \mu_1 < \mu_2 \text{ and } H_1: \mu_1 \ge \mu_2 \)</span> </button>
+    <button onclick="toggleVisibility('paragraph2')"> <span class="mathjax">\(H_0: \mu_1 \ge \mu_2 \text{ and } H_1: \mu_1 < \mu_2 \)</span> </button>
+    <button onclick="toggleVisibility('paragraph2')"> <span class="mathjax">\(H_0: \mu_1 \le \mu_2 \text{ and } H_1: \mu_1 > \mu_2 \)</span> </button>
+</div>
+
+<p id="paragraph1" class="hidden"> <b>This is answer is not correct.</b> You may have forgotten that the null hypothesis always 
+    contains an equality. The equality in the null hypothesis is important to remember because it 
+    reflects the assumption that any observed differences in sample averages are solely the result of random chance.</p>
+<p id="paragraph2" class="hidden"> <b>Correct!</b></p>
+<p id="paragraph2" class="hidden"> <b>This is answer is not correct.</b> You may have forgotten that the alternative hypothesis is the claim for 
+    which you are seeking evidence. You are looking for evidence that developers who work from home (group 1) are less productive.</p>
+    
+<p>
+    ii. What is the value of the test statistic?
+    </p>
+</div>
+
+
+<div class="button-container">
+<button onclick="toggleVisibility('paragraph11')"> <span class="mathjax">\(t = -1.941\)</span> </button>
+<button onclick="toggleVisibility('paragraph21')"> <span class="mathjax">\(t = 1.941\)</span> </button>
+<button onclick="toggleVisibility('paragraph21')"> <span class="mathjax">\(t = 1.643\)</span> </button>
+</div>
+
+<p id="paragraph11" class="hidden"> <b>Correct!</b> </p>
+<p id="paragraph21" class="hidden"> <b>This is answer is not correct.</b> Remember that 
+    <span class="mathjax">$$t = \frac{(\overline{X}_1 - \overline{X}_2)-(\mu_1 - \mu_2)}{SE}$$</span> The first term in the numerator is -0.4. The 
+    second term in the numerator is 0 because the population averages are equal under the null hypothesis. The denominator is the SE and is equal to 0.206. Remember this
+    is a two sample case!
+</p>
+<p id="paragraph31" class="hidden"> <b>This is answer is not correct.</b> Remember that 
+    <span class="mathjax">$$t = \frac{(\overline{X}_1 - \overline{X}_2)-(\mu_1 - \mu_2)}{SE}$$</span>. The first term in the numerator is -0.4. The 
+    second term in the numerator is 0 because the population averages are equal under the null hypothesis. The denominator is the SE and is equal to 0.206. Remember this
+    is a two sample case!</p>
+
+<p>
+    ii. Will the null hypothesis be rejected at the 5% significance level? What is the correct interpretation?
+    </p>
+</div>
+
+
+<div class="button-container">
+<button onclick="toggleVisibility('paragraph12')">Yes</button>
+<button onclick="toggleVisibility('paragraph22')">No</button>
+</div>
+
+
+<p id="paragraph12" class="hidden"> <b>Correct!</b> You should have found
+     that <span class="mathjax">$$t = -1.941 < -1.64 = \Phi(0.05)$$</span> So software developers who work from home are less
+      productive, on average, than software developers who come into the office. </p>
+<p id="paragraph22" class="hidden"> <b>This answer is not correct.</b> If you found that 
+    <span class="mathjax">$$t = -1.941 > -1.96 = \Phi(0.025)$$</span> you may have forgotten that the common critical 
+    value of 1.96 for a 5% hypothesis test is for a two-sided hypothesis test only.</p>
+
+
+
+
+    <div>
+		<button onclick="openPreviousPage()">Previous Topic: The p-value</button>
+		<script>
+			function openPreviousPage() {
+				window.location.href = "part5.html";
+			}
+		</script>
+	</div>
+
+	<div>
+		<button onclick="openNewPage()">Next Topic: Introduction to Regression</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "part7.html";
+			}
+		</script>
+	</div>
+	
+	<script>
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementsByClassName("mathjax")]);
+      </script>
+      
+</body>
+</html>
