@@ -33,18 +33,18 @@
     </script>
 </head>
 <body>
-    <h1>Topic 3: Null and Alternative Hypotheses</h1>
+    <h1>Question 1: Stating Hypotheses</h1>
     <div>
         <p>We often want to know the relationship between two population parameters. 
             Does an investment banking analyst make more on average than a software engineer? 
-            Is the average caffeine content of a cup of coffee from McNay Cafe less than 100 mg? 
+            Do new associates at top law firms bill 2000 hours annually? 
             </p> 
             
             <p>Even if we collect data on the salaries of every investment banking analyst and software engineer 
-                or every cup of coffee ever sold at McNay Cafe, 
+                or the billable hours of every legal associate, 
                 we still do not observe the population parameters that we want to know about. 
-                Why is this? Because every individual’s salary or cup of coffee is a random variable that 
-                is drawn from an underlying "true" model or data generating process. Ultimately, when we 
+                Why is this? Because every individual’s salary or recorded billable hours is a random variable that 
+                is drawn from an underlying <b>data generating process</b> (more on this in the previous conceptual pages). Ultimately, when we 
                 ask about a population parameter we are asking about a feature of this underlying model.
         </p> 
         <p>
@@ -53,64 +53,70 @@
             Stating the right hypotheses can be tricky - we will walk through two examples below.
         </p>
 
-            <h3>Example 1</h3>
+            <h3>Practice Problem</h3>
+
+            <p>
+                <i>Note:</i> Let <span class="mathjax">\(\mu\)</span> denote the population average billable hours for new legal associates.
+                </p>
 		
-        <p>- You watched a convincing TikTok suggesting that your daily caffeine intake should 
-            exceed 200 mg to reach optimal human performance. You only drink 2 
-            daily cups of coffee from McNay Cafe, and you become worried that you're not 
-            drinking enough caffeine. To examine this using data on the amount of caffeine in each 
-            cup of coffee served at McNay, you begin by writing out the correct null (<span class="mathjax">\(H_0\)</span>) and alternative (<span class="mathjax">\(H_1\)</span>) hypotheses. What are they?
+        <p>- You read that new legal associates at top law firms bill around 2000 hours annually. To test this, you manage to collect data on the billable hours 
+            of new legal associates from all firms in the Vault 100. As a next step, you write out the null (<span class="mathjax">\(H_0\)</span>) and alternative (<span class="mathjax">\(H_1\)</span>) hypotheses
+            for this research project. What are they?
             </p>
     </div>
 
     <div class="button-container">
-        <button onclick="toggleVisibility('paragraph1')"><span class="mathjax">\(H_0: \mu < 100 \text{ and } H_1: \mu \ge 100 \)</span></button>
-        <button onclick="toggleVisibility('paragraph2')"><span class="mathjax">\(H_0: \mu \ge 100 \text{ and } H_1: \mu < 100 \)</span></button>
+        <button onclick="toggleVisibility('paragraph1')"><span class="mathjax">\(H_0: \mu \ne 2000 \text{ and } H_1: \mu = 2000 \)</span></button>
+        <button onclick="toggleVisibility('paragraph2')"><span class="mathjax">\(H_0: \mu = 2000 \text{ and } H_1: \mu \ne 2000 \)</span></button>
     </div>
 
-    <p>
-        <i>Note:</i> Let <span class="mathjax">\(\mu\)</span> denote the population average caffeine content in a cup of coffee at McNay.
-        </p>
 
-    <p id="paragraph1" class="hidden"><b>This is not correct.</b> Remember, it is helpful to appeal to your research 
-        question when writing the null and alternative hypotheses. Our research question is the following: does McNay coffee contain less than 100 mg of caffeine? 
-        We can see that the alternative hypothesis in this selection does not reflect this question.</p>
+    <p id="paragraph1" class="hidden"><b>This is not correct.</b> A helpful hint is that the null hypothesis should always 
+    contain an equality, as it includes the possibility that there is no difference between the population parameter <span class="mathjax">\(\mu\)</span> 
+and the hypothesized value of 2000.</p>
         <p id="paragraph2" class="hidden"><b>This is correct!</b></p>
 
-    <h3>Example 2</h3>
+    <h3>Practice Problem</h3>
+
+    <i>Note:</i> Let <span class="mathjax">\(\mu_A\)</span> denote the population average salary at investment bank A and 
+    <span class="mathjax">\(\mu_B\)</span> denote the population average salary at tech company B.
+    </p>
 		
     <p>- You have a friend who is deciding between job offers from an investment bank A 
         and a tech company B. They prefer the culture at B 
-        but are concerned that A might offer higher wages. To explore this using data on wages, you 
-        begin by writing out the correct null and alternative hypotheses. What are they?
+        but are concerned that A might offer higher wages. You decide to use wage data on Glassdoor to evaluate this concern by <i>
+            looking for evidence that A offers higher wages than B.
+        </i> What hypotheses are 
+        you testing with the Glassdoor wage data?
         </p>
 </div>
 
 <div class="button-container">
     <button onclick="toggleVisibility('paragraph3')"><span class="mathjax">\(H_0: \mu_A \le \mu_B \text{ and } H_1: \mu_A > \mu_B\)</span></button>
-    <button onclick="toggleVisibility('paragraph4')"><span class="mathjax">\(H_0: \mu_A > \mu_B \text{ and } H_1: \mu_A le \mu_B\)</span></button>
+    <button onclick="toggleVisibility('paragraph4')"><span class="mathjax">\(H_0: \mu_A \ge \mu_B \text{ and } H_1: \mu_A < \mu_B\)</span></button>
 </div>
 
 <p>
-    <i>Note:</i> Let <span class="mathjax">\(\mu_A\)</span> denote the population average salary at firm A and 
-    <span class="mathjax">\(\mu_B\)</span> denote the population average salary at firm B.
-    </p>
+    
 
 <p id="paragraph3" class="hidden"><b>This is correct!</b></p>
-    <p id="paragraph4" class="hidden"><b>This is not correct.</b> Remember, it is helpful to appeal to your research 
-        question when writing the null and alternative hypotheses. Our research question is the following: does A offer higher wages than B? 
-        We can see that the alternative hypothesis in this selection does not reflect this question.</p>
+    <p id="paragraph4" class="hidden"><b>This is not correct.</b> Remember, we are seeking evidence that A offers higher wages 
+    than B. The alternative hypothesis is <b>always</b> the claim for which we are seeking evidence.</p>
 
     <p>
-        A final word on constructing null and alternative hypotheses: two helpful hints are (1) the null hypothesis always contains an equality (either <span class="mathjax">\(=\)</span>, <span class="mathjax">\(\le\)</span>, or <span class="mathjax">\(\ge\)</span>) and 
-        (2) the alternative hypothesis is the claim for which we are seeking evidence (it would be bad science to fail to reject this claim just because the data doesn't convincingly suggest the opposite relationship holds). 
+        <div class="button-container">
+            <button onclick="toggleVisibility('paragraph5')"> Click after completing practice problems </button>
+        </div>
+        <p id="paragraph5" class="hidden"> <b>A final word on constructing null and alternative hypotheses:</b> two helpful hints are (1) the null hypothesis always contains an equality (either <span class="mathjax">\(=\)</span>, <span class="mathjax">\(\le\)</span>, or <span class="mathjax">\(\ge\)</span>) and 
+            (2) the alternative hypothesis is the claim for which we are seeking evidence (it would be bad science to fail to reject this claim just because the data doesn't convincingly suggest the opposite relationship holds). </p>
     </p>
 
     <p>
-        We will discuss these ideas in more detail in the next few sections as we review how to actually perform hypothesis tests using sample data.
+        We will discuss these ideas in more detail in the next few conceptual pages as we review some key ideas that illustrate how to perform hypothesis tests using sample data.
+        If you'd like to skip ahead to the next application, click the link for <i><b>Hypothesis Testing</b></i>.
     </p>
     <div>
-		<button onclick="openPreviousPage()">Previous Topic: Confidence Intervals</button>
+		<button onclick="openPreviousPage()">Previous Conceptual Topic: Confidence Intervals</button>
 		<script>
 			function openPreviousPage() {
 				window.location.href = "part2.html";
@@ -119,10 +125,19 @@
 	</div>
 
 	<div>
-		<button onclick="openNewPage()">Next Topic: Test Statistics</button>
+		<button onclick="openNewPage()">Next Conceptual Topic: Test Statistics</button>
 		<script>
 			function openNewPage() {
 				window.location.href = "part4.html";
+			}
+		</script>
+	</div>
+
+    <div>
+		<button onclick="openNewPage1()">Skip to Next Problem: Hypothesis Testing</button>
+		<script>
+			function openNewPage1() {
+				window.location.href = "part6.html";
 			}
 		</script>
 	</div>

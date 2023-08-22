@@ -37,14 +37,15 @@
     <div>
         <p>Sample estimates of population parameters like the true average can be very 
             different across random samples from the same population. For example, with a fair die
-            we might collect two samples given by {1, 1, 1} and {1, 6, 1, 3, 1, 1, 5, 4, 4, 6}.
+            we might collect these two samples: <i>{1, 1, 1}</i> and <i>{1, 6, 1, 3, 1, 1, 5, 4, 4, 6}</i>.
             </p> 
             
             <p>The sample average in the first sample is 1, while the sample average in the 
-            second sample is 3.2. Given this wide variability, 
-            how should we communicate the uncertainty in each sample estimate? 
+            second sample is 3.2. 
         </p> 
         <p>
+            <i>Given this wide variability, 
+                how should we communicate the uncertainty in each sample estimate?</i> 
             The most common way is by reporting something known as a <b>confidence interval</b>.
         </p>
         <p>
@@ -56,67 +57,86 @@
         </p>
 
         <p>
+
+            <div class="button-container">
+                <button onclick="toggleVisibility('paragraph0')">Click to see three common confusions with the confidence interval </button>
+            </div>
+        
+            <p id="paragraph0" class="hidden"> <b>1.</b> Thinking that a 95% confidence interval is the region that contains 95% of the values in a sample. 
+                <b>2.</b> Thinking that a 95% confidence interval is the region that contains 95% of the sample averages for different samples from the same data generating process
+
+                    <b>3.</b> Thinking that the probability that the population parameter lies within a confidence interval is 0.95.<p>
+                
+    </div>
              
             </p>
-            There are three common confusions with the interpretation of confidence intervals:
+
+            <p>
+                Confidence intervals are difficult to grasp - these next practice problems will help you build some more intuition about what a confidence interval <b><i>really</i></b> is.
+            </p>
             
             <p>
-            1. Thinking that a 95% confidence interval is the region that contains 95% of the values in a sample. 
-            </p>
-            <p>
-                2. Thinking that a 95% confidence interval is the region that contains 95% of the sample averages for different samples from the same data generating process
+                <i>Note:</i> The following practice problems ask you to use R to perform simulations. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
+                to set a value for the random seed before beginning. <b>If you are confused, try asking ChatGPT before clicking the help button.</b>
                 </p>
-                <p>
-                    3. Thinking that the probability that the population parameter lies within a confidence interval is 0.95.
-                    </p>
 
-            <p>
-            We will clarify what is meant by the first two in the next practice problem.
-            </p>
+            <h3>Practice Problem</h3>
 
-            <h3>Practice Problem 2</h3>
+            
 		
-        <p>- Using 1 of the 100 samples from Practice Problem 1,
-            construct a 95% confidence interval in R for the sample estimate of the population average earnings among Nashville adults. 
-            Does the confidence interval contain 95% of the observations in this sample? What about 95% of the sample averages of earnings from all samples?
-            </p>
-            <p>
-            <i>Note:</i> For reproducibility, you should set a value for the random seed before beginning. If you are confused, please use ChatGPT to help.
+        <p>- Once again, suppose the earnings of adults in Nashville, Tennessee are approximately normally distributed with mean  <span class="mathjax"> \( \mu = 150,000 \)</span> and 
+            standard deviation <span class="mathjax"> \( \sigma = 30,000 \)</span>. Build a single sample of 1,000 Nashville residents. Use this sample to 
+            construct a 95% confidence interval in R for the population average earnings among Nashville adults. 
+            Does the confidence interval contain 95% of the observations in this sample? 
             </p>
     </div>
 
     <div class="button-container">
-        <button onclick="toggleVisibility('paragraph1')">Click after completing Practice Problem 2</button>
+        <button onclick="toggleVisibility('paragraph1')">Click after completing this practice problem</button>
+    </div>
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph2')">I don't know where to start</button>
     </div>
 
-    <p id="paragraph1" class="hidden">As shown in Practice Problem 2, a 95% confidence interval does 
-        not contain 95% of observations in a sample or 95% of the sample averages across different samples. 
-        But it is still possible that the probability that the population average is within any given single confidence interval is 95%. 
+    <p id="paragraph2" class="hidden">You should draw 1,000 normally distributed random variables using the <i>rnorm()</i> command. 
+        Then use the formula for a confidence interval to construct the 95% confidence interval for the population average of <span class="mathjax"> \( \mu = 150,000 \)</span>. If 
+you have trouble implementing this method, don't worry - ChatGPT is quite good at it!</p>
+</div>
+
+    <p id="paragraph1" class="hidden">As shown in this practice problem, a 95% confidence interval does 
+        not contain 95% of observations in a sample. But it is still possible that the probability that the population average is within any given single confidence interval is 95%. 
         We will now show that this is not the case by construction. Instead, we will show that as the number of samples grows large, we should 
         expect 95% of the individual confidence intervals constructed from these samples to contain the true population parameter that we are estimating. 
-        We will verify this in the next practice problem.</p>
+        We will verify this in the next practice problem. </p>
 
-    <h3>Practice Problem 3</h3>
+    <h3>Practice Problem </h3>
 		
-    <p>- Construct 95% confidence intervals for the true average for each of the 100 random samples from Practice Problem 1. 
+    <p>- Construct 95% confidence intervals for the true average for 100 different random samples of 1,000 adult residents of Nashville. 
         Construct another vector that lists the number of the random sample from 1-100. Then make a plot in R containing the sample number 
         on the x-axis and the confidence interval for that sample on the y-axis. 
-        Include a horizontal line for the true average of μ= 150,000. How many of the confidence intervals contain μ?
-        </p>
-        <p>
-        <i>Note:</i> For reproducibility, you should set a value for the random seed before beginning. If you are confused, please use ChatGPT to help.
+        Include a horizontal line for the true average of <span class="mathjax"> \( \mu = 150,000 \)</span>. How many of the confidence intervals contain <span class="mathjax"> \( \mu \)</span>?
         </p>
 </div>
 
 <div class="button-container">
-    <button onclick="toggleVisibility('paragraph2')">Click after completing Practice Problem 3</button>
+    <button onclick="toggleVisibility('paragraph3')">Click after completing this practice problem</button>
 </div>
 
-<p id="paragraph2" class="hidden">Hopefully you're feeling a bit more <i>confident</i> that the confidence interval is a random interval constructed using a sample estimate of a population parameter
+<div class="button-container">
+    <button onclick="toggleVisibility('paragraph4')">I don't know where to start</button>
+</div>
+
+<p id="paragraph4" class="hidden">You should implement a <b>for</b> loop in R. In each iteration of the loop, draw 1,000 normally 
+    distributed random variables at once using the <i>rnorm()</i> command. In the same loop iteration, take the average of these 1,000 random variables and construct 
+    a confidence interval using the formula from the previous practice problem. To make the resulting plot, you can use base R or the <i>ggplot</i> library. If 
+you have trouble implementing this method, don't worry - ChatGPT is quite good at it!</p>
+</div>
+
+<p id="paragraph3" class="hidden">This problem should clarify that the confidence interval is a random interval constructed using a sample estimate of a population parameter
     that uses data from a single sample. For a 95% confidence interval, we have shown that 95% of these random intervals will contain a population parameter as the number of samples grows sufficiently large.</p>
 
     <div>
-		<button onclick="openPreviousPage()">Previous Topic: Population Parameters and Sample Estimates</button>
+		<button onclick="openPreviousPage()">Previous Conceptual Topic: Population Parameters and Sample Estimates</button>
 		<script>
 			function openPreviousPage() {
 				window.location.href = "part1.html";
@@ -125,7 +145,7 @@
 	</div>
 
 	<div>
-		<button onclick="openNewPage()">Next Topic: Null and Alternative Hypotheses</button>
+		<button onclick="openNewPage()">Next Conceptual Topic: Stating Hypotheses</button>
 		<script>
 			function openNewPage() {
 				window.location.href = "part3.html";

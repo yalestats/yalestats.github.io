@@ -37,74 +37,86 @@
     </script>
 </head>
 <body>
-    <h1>Topic 7: Introduction to Regression </h1>
+    <h1>Question 1: Introduction to Regression </h1>
     <div>
        
         <p>
-            Suppose the "true" model or data generating process for noise pollution <span class="mathjax">\(y\)</span> on a street in New Haven 
-            is given by 
-            <span class="mathjax">$$y = \beta_0 + \beta_1 x + u$$</span> 
-            where <span class="mathjax">\(x\)</span> is the number of motorcycles and 4-wheelers being driven on the street and <span class="mathjax">\(u\)</span>
-            is a random variable that also affects noise pollution.
+            Suppose the <b>data generating process</b> for salaries <span class="mathjax">\(Sal\)</span> at a specific firm is given by
+            <span class="mathjax">$$Sal = \beta_0 + \beta_1 Exp  + u$$</span> 
+            where <span class="mathjax">\(Exp\)</span> is the years of experience for a particular employee and <span class="mathjax">\(u\)</span>
+            is a random variable that also affects employee salary.
         </p>
         <p>
-            Given data on <span class="mathjax">\(x\)</span> and <span class="mathjax">\(y\)</span>, how can we 
+            <i><b>Central question:</b></i> given data on <span class="mathjax">\(Exp\)</span> and <span class="mathjax">\(Sal\)</span>, how can we 
             estimate <span class="mathjax">\(\beta_0 \)</span> and <span class="mathjax">\(\beta_1 \)</span>?
-            If we are willing to assume that (1) <span class="mathjax">\(E[u|x] = E[u]\)</span> and (2) <span class="mathjax">\(E[u] = 0\)</span>, we 
-            can use OLS! The first assumption (1) is known as <b>conditional independence</b> and implies that any other variables that affect noise pollution 
-            on New Haven streets (e.g. music) aren't 
-            systematically related to the number of motorcycles and 4-wheelers being driven on that street. The second assumption (2) 
+        </p> 
+        <p>If we are willing to assume that (1) <span class="mathjax">\(E[u|Exp] = E[u]\)</span> and (2) <span class="mathjax">\(E[u] = 0\)</span>, we 
+            can use OLS! The first assumption (1) is known as <b>conditional independence</b> and implies that any other variables that affect salary (e.g. ability) 
+           for employees of the firm aren't 
+            systematically related to the years of experience that worker has at the firm. 
+            </p>
+            <p>The second assumption (2) 
             is just a normalization.
         </p>
 
         <p>
-
+            <b>Note:</b> The following practice problem asks you to use R to perform regression analysis. Before continuing, click the link below to 
+            access the CSV file that will be used in this problem. <b>If you are confused with how to perform regression analysis in R, try asking ChatGPT for help.</b>
         </p>
 
-<h3>Example 1</h3>
+        <a href="https://www.dropbox.com/scl/fi/x1gywazhd048y9yn9e8kp/Salary_Data.csv?rlkey=skmp37tokv06b7hvwo6tczyzl&dl=0" download>Download CSV</a>
 
-<p>- We are told that the data generating process for noise pollution <span class="mathjax">\(y\)</span> (in dbA, or human-adjusted decibels) is 
-    <span class="mathjax">$$y = 10x + 5e$$</span> 
-    where <span class="mathjax">\(x\)</span> is the (observed) number of motorcycles and 4-wheelers being driven on the street and <span class="mathjax">\(e\)</span>
-    is an unobserved variable that also affects noise pollution.
+
+<h3>Practice Problem</h3>
+
+<p>- A small manufacturing firm with 30 employees is reviewing its wage structure and asks you to evaluate how worker salaries change with experience.
     </p>
     <p>
-        1. Using R, construct a random sample of 100 neighborhoods under the assumption that <span class="mathjax">\(e \sim N(0,1)\)</span> and 
-        <span class="mathjax">\(x \sim U(0,20)\)</span>. Use the data generating process above to generate 
-        <span class="mathjax">\(y\)</span> for each neighborhood.
-    </p>
-    <p>
-        2. Still using R, estimate an OLS regression of noise pollution <span class="mathjax">\(y\)</span> on the number of motorcycles and 4-wheelers on a street <span class="mathjax">\(x\)</span>. This regression should contain 100 observations, one for each neighborhood. 
-        Are the estimated coefficients close to <span class="mathjax">\(\hat{\beta}_0 = 0\)</span> and <span class="mathjax">\(\hat{\beta}_1 = 10\)</span>?
+        1. Using R, estimate an OLS regression of salary <span class="mathjax">\(Sal\)</span> on years of experience <span class="mathjax">\(Exp\)</span>. This regression should contain 30 observations, one for each employee. 
+        What is the estimated coefficient on years of experience <span class="mathjax">\(\hat{\beta}_1\)</span>?
     </p>
 
     <div class="button-container">
-        <button onclick="toggleVisibility('paragraph1')">Yes</button>
-        <button onclick="toggleVisibility('paragraph2')">No</button>
+        <button onclick="toggleVisibility('paragraph1')"><span class="mathjax">\(\hat{\beta}_1 = 9450\)</span></button>
+        <button onclick="toggleVisibility('paragraph2')"><span class="mathjax">\(\hat{\beta}_1 = 0.0001013\)</span></button>
     </div>
     
-    <p>
-        <i>Note:</i> For reproducibility, you should set a value for the random seed before beginning. If you are confused, please use ChatGPT to help.
-    </p>
 
-    <p id="paragraph1" class="hidden"> <b>Great!</b> Because <span class="mathjax">\(E[e|x] = E[e]\)</span> and <span class="mathjax">\(E[e] = 0\)</span>, 
-    the estimated values should be close to the true values from the data generating process. The reason it isn't exact is that the data is a finite sample. </p>
+    <p id="paragraph1" class="hidden"> <b>Great!</b> This is correct. </p>
 
-         <p id="paragraph2" class="hidden"> <b>This isn't quite right.</b> Notice that <span class="mathjax">\(E[e|x] = E[e]\)</span> and <span class="mathjax">\(E[u] = 0\)</span>
-            in this setting, so the estimated values should be close to the true values from the data generating process. The only reason it isn't exact is that the data is a finite sample.  </p>
+         <p id="paragraph2" class="hidden"> <b>This isn't quite right.</b> The <i>lm()</i> command in R has the syntax <i>lm(y ~ x)</i>. </p>
+
+         <p>
+            2. How much of the variation in salaries can be explained by variation in years of experience?
+        </p>
+
+        <div class="button-container">
+            <button onclick="toggleVisibility('paragraph_a')"><span class="mathjax">\(59.9\% \)</span></button>
+            <button onclick="toggleVisibility('paragraph_b')"><span class="mathjax">\(95.5\% \)</span></button>
+        </div>
+        
+        <p id="paragraph_a" class="hidden"> <b>This isn't quite right.</b> You should be looking for the model's adjusted <span class="mathjax">\(R^2 \)</span> </i>. </p>
+
+        <p id="paragraph_b" class="hidden"> <b>Great!</b> This is correct. </p>
+    
+             
+        <p>
+            3. According to the model, what is the expected salary of someone with 4 years of experience at the firm?
+        </p>
+
+        <div class="button-container">
+            <button onclick="toggleVisibility('paragraph_c')"><span class="mathjax">\( $60,150\)</span></button>
+            <button onclick="toggleVisibility('paragraph_d')"><span class="mathjax">\($63,592 \)</span></button>
+        </div>
+        
+        <p id="paragraph_c" class="hidden"> <b>This isn't quite right.</b> You should use the model estimates, not the data, to construct this. </p>
+
+        <p id="paragraph_d" class="hidden"> <b>Great!</b> This is correct. </p>
 
 
-    <div>
-		<button onclick="openPreviousPage()">Previous Topic: Performing the Hypothesis Test</button>
-		<script>
-			function openPreviousPage() {
-				window.location.href = "part6.html";
-			}
-		</script>
-	</div>
 
 	<div>
-		<button onclick="openNewPage()">Next Topic: Evaluating Regression Output</button>
+		<button onclick="openNewPage()">Next Problem: Evaluating Regression Output</button>
 		<script>
 			function openNewPage() {
 				window.location.href = "part8.html";

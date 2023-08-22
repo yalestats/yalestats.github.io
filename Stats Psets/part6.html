@@ -37,36 +37,36 @@
     </script>
 </head>
 <body>
-    <h1>Topic 6: Performing the Hypothesis Test</h1>
+    <h1>Question 2: Hypothesis Testing</h1>
     <div>
         <p>The last (and perhaps most important) component of 
             hypothesis testing is the actual test itself. This can take one of two forms, with the first being the most common:
             </p> 
 
             <p>
-            1. Comparing the p-value to the significance level. We commonly use <span class="mathjax">\(\alpha\)</span> to represent the significance level.
+            <i>1. Comparing the p-value <span class="mathjax">\(p\)</span> to the significance level. We commonly use <span class="mathjax">\(\alpha\)</span> to represent the significance level.</i>
             <p>
-                a. If the p-value is less than the significance level, you reject the null hypothesis.
+                a. If <span class="mathjax">\(p < \alpha\)</span>, you reject the null hypothesis.
             </p>
             <p>
-                b. If the p-value is greater than the significance level, you fail to reject the null hypothesis because of insufficient evidence to support the alternative hypothesis.
+                b. If <span class="mathjax">\(p > \alpha\)</span>, you fail to reject the null hypothesis because of insufficient evidence to support the alternative hypothesis.
             </p>
             </p>
 
             <p>
-                2. Comparing the test statistic to a critical value. 
+                <i>2. Comparing the test statistic <span class="mathjax">\(t\)</span> to a critical value <span class="mathjax">\(t_{crit}\)</span>. </i>
                 <p>
-                    a. If the test statistic is greater than the critical value, you reject the null hypothesis.
+                    a. If <span class="mathjax">\(|t| > |t_{crit}|\)</span>, you reject the null hypothesis.
                 </p>
                 <p>
-                    b. If the test statistic is less than the critical value, you fail to reject the null hypothesis because of insufficient evidence to support the alternative hypothesis.
+                    b. If <span class="mathjax">\(|t| < |t_{crit}|\)</span>, you fail to reject the null hypothesis because of insufficient evidence to support the alternative hypothesis.
                 </p>
             
             <p>
-                Before going on to an application, let's define the significance level and critical value.
+                Before going on to an application, let's define the <b>significance level</b> and <b>critical value</b>.
         </p> 
         <p>
-            The significance level of a hypothesis test is a value chosen by you, the analyst, before performing any data analysis. 
+            The <b>significance level</b> of a hypothesis test is a value chosen by you, the analyst, before performing any data analysis. 
             The most common are <span class="mathjax">\(\alpha = 0.01, 0.05, \text{ and } 0.1\)</span>. The significance level is the maximum 
             probability you allow for committing a Type I error, which is the probability of rejecting the null hypothesis when it is actually true. 
             This case is highlighted in red in the table below.
@@ -81,7 +81,7 @@
                 it means you are willing to accept a 5% chance of rejecting the null hypothesis when it is true (a 5% chance of a Type I error). </p>
         </p>
         <p>
-            The critical value is the value of the test statistic used in hypothesis testing to determine whether you should 
+            The <b>critical value</b> is the value of the test statistic used in hypothesis testing to determine whether you should 
             reject or fail to reject the null hypothesis. It depends on the chosen significance level <span class="mathjax">\(\alpha\)</span>. 
             A smaller <span class="mathjax">\(\alpha\)</span> will result in a larger critical value. This is shown below for a one-sided hypothesis 
             with <span class="mathjax">\(\alpha = 0.1\)</span> and <span class="mathjax">\(\alpha = 0.05\)</span>. 
@@ -102,13 +102,14 @@
             Now that we have all the pieces in order, we can work through a full hypothesis test. 
         </p>
 
-            <h3>Example 5</h3>
+            <h3>Practice Problem</h3>
 		
         <p>- You are hired as a consultant for a firm that wants to know if software 
             developers who work from home (group 1) are not as productive as software developers 
             who come into the office (group 2). They ask you to perform a statistical test at the 5% significance 
             level to verify whether this is the case. To perform the analysis, you are given the following data on software 
-            developer productivity for these two groups, where productivity is measured as the number of code commits per day. 
+            developer productivity for these two groups, where productivity is measured as the number of code commits per day. You are 
+            looking for <i>evidence that software developers who work from home are <b>less</b> productive than those that come into the office</i>.
             </p>
 
             <div class="centered-figure">
@@ -118,9 +119,9 @@
                 </div>
 
             <p>
-            i. What are the correct null and alternative hypotheses? Let <span class="mathjax">\(\mu_1\)</span> denote the population 
+            i. Let <span class="mathjax">\(\mu_1\)</span> denote the population 
             average productivity of software developers in group 1 and <span class="mathjax">\(\mu_2\)</span> denote the population 
-            average productivity of software developers in group 2.
+            average productivity of software developers in group 2. <b>What are the correct null and alternative hypotheses?</b>
             </p>
     </div>
 
@@ -133,7 +134,7 @@
 
 <p id="paragraph1" class="hidden"> <b>This is answer is not correct.</b> You may have forgotten that the null hypothesis always 
     contains an equality. The equality in the null hypothesis is important to remember because it 
-    reflects the assumption that any observed differences in sample averages are solely the result of random chance.</p>
+    reflects the assumption that any observed differences in sample averages are only because of random chance.</p>
 <p id="paragraph2" class="hidden"> <b>Correct!</b></p>
 <p id="paragraph2" class="hidden"> <b>This is answer is not correct.</b> You may have forgotten that the alternative hypothesis is the claim for 
     which you are seeking evidence. You are looking for evidence that developers who work from home (group 1) are less productive.</p>
@@ -181,17 +182,33 @@
     value of 1.96 for a 5% hypothesis test is for a two-sided hypothesis test only.</p>
 
 
-
-
     <div>
-		<button onclick="openPreviousPage()">Previous Topic: The p-value</button>
+		<button onclick="openPreviousPage()">Back to Introduction</button>
 		<script>
 			function openPreviousPage() {
-				window.location.href = "part5.html";
+				window.location.href = "main.html";
 			}
 		</script>
 	</div>
 
+    <div>
+		<button onclick="openOldPage1()">Back to Previous Problem: Stating Hypotheses</button>
+		<script>
+			function openOldPage1() {
+				window.location.href = "part3.html";
+			}
+		</script>
+	</div>
+
+    <div>
+		<button onclick="openPreviousPage1()">Previous Conceptual Topic: The p-value</button>
+		<script>
+			function openPreviousPage1() {
+				window.location.href = "part5.html";
+			}
+		</script>
+	</div>
+<!--
 	<div>
 		<button onclick="openNewPage()">Next Topic: Introduction to Regression</button>
 		<script>
@@ -200,6 +217,7 @@
 			}
 		</script>
 	</div>
+-->
 	
 	<script>
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementsByClassName("mathjax")]);

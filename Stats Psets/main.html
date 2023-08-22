@@ -30,27 +30,49 @@
     </script>
 </head>
 <body>
-    <h1>Introduction: Confidence Intervals and Hypothesis Testing</h1>
+    <h1> Introduction</h1>
     <div>
         <p>
-            This module will work through the concepts of Confidence Intervals and Hypothesis Testing. Before we start talking about confidence intervals directly, it's important to review how statisticians
-            think about the data that we collect to perform statistical analyses. Statisticians take the view that any observed outcome (e.g. today's temperature) is a realization from an underlying "true" model of the world. Each day 
-            the temperature is produced from a complex, uncertain system, and statisticians make specific assumptions to learn about the features of this "true" model using observed temperature data.
+            This module will work through two key concepts from Problem Set 1: <b>confidence intervals</b> and <b>hypothesis testing</b>. Some of the pages are conceptual 
+            and involve coding up simulations in R (though ChatGPT use is encouraged). If you'd like to skip these pages and just look at the applied problems, 
+            click the link here: 
+
+            <div>
+                <button onclick="openNewPage0()">Skip Ahead: Stating Hypotheses</button>
+                <script>
+                    function openNewPage0() {
+                        window.location.href = "part3.html";
+                    }
+                </script>
+
+            </div>
+
+        </p>
+
+            <p>
+
+            <b>Note:</b> links to additional online resources are included at the bottom of this page.
+
+            </p>
+
+            <p>
+            For those who want to step through the more conceptual pages, it's important to first review how statisticians
+            think about the data that we collect to perform statistical analyses. Statisticians take the view that any observed outcome (e.g. today's temperature) is a realization from an <b>underlying statistical model</b> of the world. Each day 
+            the temperature is produced from a complex, uncertain system, and statisticians make specific assumptions to learn about the features of this model using observed temperature data.
         </p>
 
     <p>
         To use a simpler example, we know the roll of a fair die can take on any of the values 1, 2, 3, 4, 5, or 6 with probability = 1/6. This distribution of probabilities 
-        across outcomes is the "true" model or <b>data generating process</b> for rolling a fair die. 
+        across outcomes is the true model or <b>data generating process</b> for rolling a fair die. 
         Each time we roll a die, we observe a single outcome that we call a <b>realization</b>. This realization could be a 1, a 3, or any other of the 6 possible values.
-        A set of realizations that we collect is called a <b>sample</b> and could look like {4, 1, 6, 2, 5, 4, 1, 3, 6, 2}, {3, 5, 2, 6, 6, 3, 4, 2, 3, 5}, or any other possible combination of rolls.</p>
+        A set of realizations that we collect is called a <b>sample</b> and could look like <i>{4, 1, 6, 2, 5, 4, 1, 3, 6, 2}</i> , <i>{3, 5, 2, 6, 6, 3, 4, 2, 3, 5}</i>, or any other possible combination of rolls.</p>
     </p> 
 
     <p>
-        In the next section, we'll learn more about how statisticians use observed sample data to learn about the features of "true" models. If you already feel comfortable with this idea and the concept of 
-        confidence intervals more generally, feel free to skip ahead to the section on hypothesis testing. Some extra online resources are included at the bottom of the page.
+        In the next section, we'll learn more about how statisticians use observed sample data to learn about the features of statistical models.
     </p>
-    </div>
-	
+
+            	
     <div>
 		<button onclick="openNewPage1()">Next Topic: Population Parameters and Sample Estimates</button>
 		<script>
@@ -60,15 +82,12 @@
 		</script>
 	</div>
 
-    <div>
-		<button onclick="openNewPage2()">Skip Ahead: Null and Alternative Hypotheses</button>
-		<script>
-			function openNewPage2() {
-				window.location.href = "part3.html";
-			}
-		</script>
-	</div>
+    <p>
 
+    </p>
+    <p>
+        
+    </p>
     <div class="button-container">
         <button onclick="toggleVisibility('paragraph1')">Additional Resources on Confidence Intervals </button>
     </div>
@@ -80,6 +99,9 @@
         </div>
     
         <p id="paragraph2" class="hidden"> Click <a href="https://online.stat.psu.edu/statprogram/reviews/statistical-concepts/hypothesis-testing">here</a>. </p>
+
+            
+    </div>
 
 </body>
 </html>

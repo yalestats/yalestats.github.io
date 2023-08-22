@@ -33,7 +33,7 @@
     </script>
 </head>
 <body>
-    <h1>Topic 4: Test Statistics</h1>
+    <h1>Topic 3: Test Statistics</h1>
     <div>
         <p>In the previous section, we stated null and alternative hypotheses in terms of the population parameter <span class="mathjax">\(\mu\)</span>,
             but we never observe <span class="mathjax">\(\mu\)</span>. Instead, we use sample 
@@ -43,7 +43,7 @@
             <p>
             Since we never observe <span class="mathjax">\(\mu\)</span>, it's not obvious how we should decide whether
             the sample data contains enough evidence in favor of <span class="mathjax">\(H_1\)</span> for us to reject <span class="mathjax">\(H_0\)</span>. 
-            Test statistics provide us with a systematic way of making this decision.
+            <b>Test statistics provide us with a systematic way of making this decision.</b>
             </p>
 
             <p>
@@ -63,37 +63,42 @@ All we need are 3 basic sample statistics: the sample average, the sample standa
         <p>
             Because we know the distribution of a standard normal random variable, 
             we are able to make statements about the probability of our sample estimate occurring if 
-            the null hypothesis is true. What exactly does that mean? We can use an example to clear things up.
+            the null hypothesis is true. What exactly does that mean? We can use an example to clear things up. <b>Note:</b> This practice problem asks you to use R to perform a simulation. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
+            to set a value for the random seed before beginning. <b>If you are confused, try asking ChatGPT before clicking the help button.</b>
         </p>
 
-            <h3>Example 3</h3>
+            <h3>Practice Problem</h3>
 		
-        <p>- Your friend choosing between investment banking (firm A) and software engineering (firm B) goes on 
-            Glassdoor and observes salary data from a subset of employees at firm A and firm B. 
-            Suppose that starting salaries at firm A are 
-            approximately normally distributed with mean <span class="mathjax">\(\mu = 130,000\)</span> and standard deviation  <span class="mathjax">\(\sigma = 30,000\)</span> 
-            and starting salaries at firm B are approximately normally distributed with mean  <span class="mathjax">\(\mu = 120,000\)</span> and 
-            standard deviation <span class="mathjax">\(\sigma = 20,000\)</span>. These will be our data generating processes.
+        <p>- A car manufacturer is deciding whether they should begin offering a new line of electric trucks. They decide that they will offer these new vehicles 
+            as long as market research suggests that consumers are willing to offer more than <span class="mathjax">\(55,000\)</span> for the trucks. 
+            The manufacturer's marketing team designs a survey to elicit willingness to pay from a set of representative consumers. Suppose that true willingness to pay is
+            approximately normally distributed with mean <span class="mathjax">\(\mu = 51,000\)</span> and standard deviation  <span class="mathjax">\(\sigma = 9,000\)</span>.
             </p>
             <p>
-            Using R, construct a random sample of 100 salaries from each of the two firms. 
-            Construct the t-statistic for the difference in sample means (this is a 2 sample hypothesis test - you should modify the one-sample t-statistic formula to reflect this). 
+            Using R, construct a random sample of 100 consumers and use these 100 observations to construct the t-statistic <i>under the assumption the null hypothesis is true</i>. 
             Now repeat this process 500 times and plot the distribution of t-statistics across all the iterations. Is the distribution approximately standard normal?
             </p>
     </div>
+
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph0')">I don't know where to start</button>
+    </div>
+    
+    <p id="paragraph0" class="hidden"> You should implement a <b>for</b> loop in R. In each iteration of the loop, draw 100 normally 
+        distributed random variables at once using the <i>rnorm()</i> command. In the same loop iteration, take the average of these 100 random variables and construct 
+        a t-statistic using the formula provided on this page (<b>hint:</b> when the null hypothesis is true, <span class="mathjax">\(\mu = 55,000\)</span>). 
+        To make the resulting plot, you can use base R or the <i>ggplot</i> library. If 
+    you have trouble implementing this method, don't worry - ChatGPT is quite good at it!</p>
 
 
 <div class="button-container">
     <button onclick="toggleVisibility('paragraph5')">Click when finished</button>
 </div>
 
-<p>
-    <i>Note:</i> For reproducibility, you should set a value for the random seed before beginning. If you are confused, please use ChatGPT to help.
-    </p>
-
-<p id="paragraph5" class="hidden"> Hopefully you are satisfied that the t-statistic has a distribution that is approximately standard normal. In the next section, we will use this fact to construct p-values.</p>
+<p id="paragraph5" class="hidden"> You should have found that the t-statistic has a distribution that is approximately standard normal. In the next conceptual section, we will use this fact to develop
+    some intuition about p-values.</p>
     <div>
-		<button onclick="openPreviousPage()">Previous Topic: Null and Alternative Hypotheses</button>
+		<button onclick="openPreviousPage()">Back to Problem: Stating Hypotheses</button>
 		<script>
 			function openPreviousPage() {
 				window.location.href = "part3.html";
@@ -102,7 +107,7 @@ All we need are 3 basic sample statistics: the sample average, the sample standa
 	</div>
 
 	<div>
-		<button onclick="openNewPage()">Next Topic: The p-value</button>
+		<button onclick="openNewPage()">Next Conceptual Topic: The p-value</button>
 		<script>
 			function openNewPage() {
 				window.location.href = "part5.html";

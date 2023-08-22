@@ -37,85 +37,73 @@
     </script>
 </head>
 <body>
-    <h1>Topic 9: Regression Hypothesis Testing </h1>
+    <h1>Question 1: Regression for Prediction </h1>
     <div>
        
         <p>
-            You are a financial analyst working for a hedge fund. 
-            You have been given a dataset containing the daily closing stock prices of a company 
-            for the past year. Your task is to determine if there is a significant relationship between consumer sentiment and the company's stock prices.
+            This practice problem will be helpful for answering questions asking you to use regression estimates to make predictions (e.g. the sale price of a home given some information about the home's attributes).
         </p>
 
-        <p>
-            The dataset contains the following variables for each of the 365 days in the past year:
-            <p>
-                <span class="mathjax">\(P\)</span> - the daily closing price of the company's stock in USD
-            </p>
-            <p>
-                <span class="mathjax">\(CS\)</span> - an index of consumer sentiment about the firm
-            </p>
-            The consumer sentiment index has been normalized so <span class="mathjax">\(CS \sim N(0,1)\)</span>. Positive values represent positive sentiment.
-        </p>
+       
 
-        <h3>Example 2</h3>
+        <h3>Practice Problem</h3>
 
 
-        <p> - Suppose that the true data generating process for stock prices <span class="mathjax">\(y\)</span> (in USD) is 
-            <span class="mathjax">$$P = 10 + 5 CS + u$$</span> 
-            where <span class="mathjax">\(u\)</span>
-            is an unobserved variable that also affects stock prices.
-            </p>
-            <p>
-                1. Using R, construct a random sample of 365 daily stock prices under the assumption that <span class="mathjax">\(u \sim N(0,1)\)</span> and 
-                <span class="mathjax">\(CS \sim N(0,1)\)</span>. Use the data generating process above to generate 
-                <span class="mathjax">\(P\)</span> for each day.
-            </p>
-            <p>
-                2. Still using R, estimate an OLS regression of stock prices <span class="mathjax">\(P\)</span> on consumer sentiment <span class="mathjax">\(CS\)</span>. This regression should contain 365 observations, one for each day. 
-            </p>
-            <p>
-                3. Interpret the coefficient on the consumer sentiment index: what does it tell us?
-            </p>
+        <p> - You are shown the following regression output:
 
+            <div class="centered-figure">
+                <figure>
+                    <img src="figures/regression_output.png" alt="left">
+                  </figure>
+                </div>
+
+            This output is from a regression of log home sale prices on the home's square footage and lot size (both in logs) as well two indicator variables: <i>new</i> 
+            is an indicator equal to 1 if the house being sold is a recent construction and <i>low_qual</i> is an indicator equal to 1 if the home is flagged by 
+            an inspector as being low quality.
+            <p>
+            a. Using this information, what is the predicted sale price of a high quality, recently constructed 3200 sqft home on an 8000 foot lot? 
+            </p>
             <div class="button-container">
-                <button onclick="toggleVisibility('paragraph1')">Click after completing (3)</button>
-            </div>
-            <p id="paragraph1" class="hidden"> Because <span class="mathjax">\(CS\)</span> is normalized, 
-            a one standard deviation increase in consumer sentiment leads to a <span class="mathjax">\(\hat{\beta}_1\)</span> dollar increase 
-        in the price of the company's stock.</p>
-    
-
-        <p>
-            4. Can we reject the null hypothesis that the true effect of consumer sentiment on stock prices is zero, at the 5% level? Why or why not?
-        </p>
-        
-            <div class="button-container">
-                <button onclick="toggleVisibility('paragraph2')">Yes</button>
-                <button onclick="toggleVisibility('paragraph3')">No</button>
+                <button onclick="toggleVisibility('paragraph2')">$258,585.1</button>
+                <button onclick="toggleVisibility('paragraph3')">$206,608.3 </button>
+                <button onclick="toggleVisibility('paragraph4')">$3,140.7</button>
             </div>
             
-            <p>
-                <i>Note:</i> For reproducibility, you should set a value for the random seed before beginning. If you are confused, please use ChatGPT to help.
-            </p>
         
-            <p id="paragraph2" class="hidden"> <b>Great!</b> The correct null hypothesis is <span class="mathjax">\(H_0: \beta_1  = 0\)</span> 
-            and the correct alternative hypothesis is <span class="mathjax">\(H_0: \beta_1  \ne 0\) </span>. The critical value for a two-sided
-        95% hypothesis test is <span class="mathjax">\(t=1.96\)</span>, which is less than our value. When the critical value is less than the 
-        value of a test statistic, we reject the null hypothesis at the specified significance level.</p>
+            <p id="paragraph2" class="hidden"> <b>Great!</b> This is correct. </p>
         
-                 <p id="paragraph3" class="hidden"> <b>This isn't quite right.</b> The correct null hypothesis is <span class="mathjax">\(H_0: \beta_1  = 0\)</span> 
-                    and the correct alternative hypothesis is <span class="mathjax">\(H_0: \beta_1  \ne 0\) </span>. Note that this is a two-sided test, as we are 
-                     asked to test for a significant relationship rather than only a significant positive or significant negative relationship. The critical value for a two-sided
-                95% hypothesis test is <span class="mathjax">\(t=1.96\)</span>, which is less than our value. When the critical value is less than the value of a test statistic, we 
-            reject the null hypothesis at the specified significance level. </p>
+            <p id="paragraph3" class="hidden"> <b>This isn't quite right.</b> Be careful with the quality indicator: the value should be 0.  </p>
+        
+             <p id="paragraph4" class="hidden"> <b>This isn't quite right.</b> Remember to exponentiate <i>only</i> after you've constructed the predicted log sale price. </p>
         
 
+            <p>
+                b. You notice that the Zillow Zestimate for this home is $295,000. Is this within the 90% prediction interval for the sale price of this home? Or does 
+                the regression analysis suggest the Zestimate is inaccurate?
+            </p>
+
+        </p>
+        <div class="button-container">
+            <button onclick="toggleVisibility('paragraph5')">Yes, the 90% prediction interval is [$173,170.2, $386,130.2]</button>
+            <button onclick="toggleVisibility('paragraph6')">No, the 90% prediction interval is [$258,583.1, $258,587.1]</button>
+            <button onclick="toggleVisibility('paragraph7')">Yes, the 90% prediction interval is [$184,696.6, $362,032.8]</button>
+        </div>
+        
+    
+        <p id="paragraph7" class="hidden"> <b>Great!</b> This is correct. </p>
+    
+        <p id="paragraph6" class="hidden"> <b>This isn't quite right.</b> Make sure you use the correct formula for the prediction interval 
+            <span class="mathjax">$$PI = \hat{y} \pm t\cdot RMSE$$</span> and exponentiate the endpoints after constructing it in logs.  </p>
+    
+         <p id="paragraph5" class="hidden"> <b>Almost there! </b> You are correct that the Zestimate is within the interval but make sure you use the correct t-statistic in the formula for the prediction interval 
+            <span class="mathjax">$$PI = \hat{y} \pm t\cdot RMSE$$</span> and exponentiate the endpoints after constructing it in logs. </p>
+    
 
     <div>
-		<button onclick="openPreviousPage()">Previous Topic: Evaluating Regression Output</button>
+		<button onclick="openPreviousPage()">Back to PS 2 Practice Problems</button>
 		<script>
 			function openPreviousPage() {
-				window.location.href = "part8.html";
+				window.location.href = "part7.html";
 			}
 		</script>
 	</div>
