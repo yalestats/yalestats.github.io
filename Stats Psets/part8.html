@@ -20,6 +20,11 @@
             display: flex;
         justify-content: center;
     }
+    hr {
+          border: none; /* Remove the default border */
+          height: 2px; /* Set the height */
+          background-color: #333; /* Set the color */
+        }
     </style>
     <script>
         function toggleVisibility(id) {
@@ -106,6 +111,12 @@
 
         <p id="paragraph3" class="hidden"> You should have gotten <span class="mathjax">\(t = -0.244\)</span>. This is because 
             <span class="mathjax">$$\frac{\hat{\beta}_0}{se(\hat{\beta}_0)} = t \iff t = \frac{-346.29}{1417.973} $$</span> </p>
+
+            <hr> <!-- This is where the styled horizontal line appears -->
+
+    <p>
+        
+    </p>
 
     <div>
 		<button onclick="openPreviousPage()">Previous Problem: Introduction to Regression </button>

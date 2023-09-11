@@ -16,6 +16,11 @@
         .button-container button {
             margin-bottom: 5px;
         }
+        hr {
+          border: none; /* Remove the default border */
+          height: 2px; /* Set the height */
+          background-color: #333; /* Set the color */
+        }
     </style>
     <script>
         function toggleVisibility(id) {
@@ -35,15 +40,23 @@
 <body>
     <h1>Topic 3: Test Statistics</h1>
     <div>
-        <p>In the previous section, we stated null and alternative hypotheses in terms of the population parameter <span class="mathjax">\(\mu\)</span>,
-            but we never observe <span class="mathjax">\(\mu\)</span>. Instead, we use sample 
-            data to construct estimates of the unknown parameter <span class="mathjax">\(\mu\)</span>.
+        <p>In the previous section, we stated null and alternative hypotheses in terms of the population mean <span class="mathjax">\(\mu\)</span>,
+            but we rarely (if ever) observe <span class="mathjax">\(\mu\)</span> in the real-world. Instead, we use sample 
+            data to construct estimates of this unknown mean <span class="mathjax">\(\mu\)</span>. We have already discussed that the 
+            sample mean might be a reasonable guess for the population mean. Now let's connect this back to our discussion of hypothesis testing.
             </p> 
 
             <p>
             Since we never observe <span class="mathjax">\(\mu\)</span>, it's not obvious how we should decide whether
             the sample data contains enough evidence in favor of <span class="mathjax">\(H_1\)</span> for us to reject <span class="mathjax">\(H_0\)</span>. 
             <b>Test statistics provide us with a systematic way of making this decision.</b>
+            </p>
+
+            <p> 
+                Suppose you observe data on incomes of doctors with a mean of
+                <span class="mathjax">\(\$350,000\)</span> and want to test whether doctors 
+                typically make more than <span class="mathjax">\(\$300,000\)</span> or whether the doctors in your small sample were 
+                just lucky. To do this, you might construct a test statistic. A test statistic is a function of the sample whose statistical distribution we can calculate.
             </p>
 
             <p>
@@ -60,45 +73,93 @@ Because of the Central Limit Theorem, we know that the t-statistic is approximat
 This <b>crucial</b> result allows us to use sample data generated from <i>any</i> unknown distribution to form a test statistic with a known distribution (standard normal). 
 All we need are 3 basic sample statistics: the sample average, the sample standard deviation, and the sample size! 
         </p> 
-        <p>
+     <!-- <p>
             Because we know the distribution of a standard normal random variable, 
             we are able to make statements about the probability of our sample estimate occurring if 
-            the null hypothesis is true. What exactly does that mean? We can use an example to clear things up. <b>Note:</b> This practice problem asks you to use R to perform a simulation. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
-            to set a value for the random seed before beginning. <b>If you are confused, try asking ChatGPT before clicking the help button.</b>
+            the null hypothesis is true. What exactly does that mean? We can use an example to clear things up. 
         </p>
-
+-->  
             <h3>Practice Problem</h3>
+
+            <p><b>Note:</b> This practice problem asks you to use R to perform a simulation. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
+                to set a value for the random seed before beginning. <b>If you are confused, try asking ChatGPT before clicking the help button.</b></p>
 		
-        <p>- A car manufacturer is deciding whether they should begin offering a new line of electric trucks. They decide that they will offer these new vehicles 
-            as long as market research suggests that consumers are willing to offer more than <span class="mathjax">\(55,000\)</span> for the trucks. 
-            The manufacturer's marketing team designs a survey to elicit willingness to pay from a set of representative consumers. Suppose that true willingness to pay is
-            approximately normally distributed with mean <span class="mathjax">\(\mu = 51,000\)</span> and standard deviation  <span class="mathjax">\(\sigma = 9,000\)</span>.
+        <p> A car manufacturer is deciding whether they should begin offering a new line of electric trucks. They decide that they will offer these new vehicles 
+            as long as market research suggests that the average consumer is willing to offer more than <span class="mathjax">\(\$55,000\)</span> for the trucks. 
+            The manufacturer's marketing team designs a survey to elicit willingness to pay from a set of representative consumers. 
+            The existing consensus is that willingness to pay is beneath <span class="mathjax">\(\$55,000\)</span>.
             </p>
             <p>
-            Using R, construct a random sample of 100 consumers and use these 100 observations to construct the t-statistic <i>under the assumption the null hypothesis is true</i>. 
-            Now repeat this process 500 times and plot the distribution of t-statistics across all the iterations. Is the distribution approximately standard normal?
+                1. Let <span class="mathjax">\(\mu \)</span></button> denote the average consumer willingness to pay. What are the correct null and alternative hypotheses? 
+                </p>
+
+                <div class="button-container">
+                    <button onclick="toggleVisibility('paragraph5')"><span class="mathjax">\(H_0: \mu \le \$55,000\)</span> and 
+                        <span class="mathjax">\(H_1: \mu > \$55,000\)</span></button>
+                </div>
+
+                <div class="button-container">
+                    <button onclick="toggleVisibility('paragraph6')"><span class="mathjax">\(H_0: \mu \ge \$55,000\)</span> and 
+                        <span class="mathjax">\(H_1: \mu < \$55,000\)</span></button>
+                </div>
+
+                <p id="paragraph5" class="hidden"> <b>This is correct!</b></p>
+
+                    <p id="paragraph6" class="hidden"> <b>This is not correct.</b> Remember, the alternative hypothesis should 
+                    reflect your new theory, not the previous view about consumer willingness to pay.</p>
+            <p>
+
+            Now suppose that true willingness to pay is approximately normally distributed 
+            with mean <span class="mathjax">\(\mu = \$52,000\)</span> and standard deviation  <span class="mathjax">\(\sigma = \$9,000\)</span>. <a href="https://rdrr.io/snippets/">Using R</a>, 
+            simulate a random sample of 100 consumers and construct a t-statistic <i>under the assumption the null hypothesis from (1) is true</i>. To 
+            construct the t-statistic, follow the steps below:
+
+            <p>
+                i. Calculate the average willingness to pay <span class="mathjax">\(\overline{X} \)</span></button> among the 100 consumers 
+                </p>
+
+                <p>
+                    ii. Calculate the standard deviation of willingness to pay <span class="mathjax">\(s \)</span></button> among the 100 consumers
+                </p>
+                <p>
+                    iii. Use the provided formula along with these statistics and the value of <span class="mathjax">\(\mu \)</span></button> and <span class="mathjax">\(N \)</span></button> to form the t-statistic
+                </p>
+
+            2. Repeat this process 500 times and plot the distribution of t-statistics across all the iterations.
             </p>
+
+            
     </div>
 
     <div class="button-container">
         <button onclick="toggleVisibility('paragraph0')">I don't know where to start</button>
     </div>
     
-    <p id="paragraph0" class="hidden"> You should implement a <b>for</b> loop in R. In each iteration of the loop, draw 100 normally 
-        distributed random variables at once using the <i>rnorm()</i> command. In the same loop iteration, take the average of these 100 random variables and construct 
-        a t-statistic using the formula provided on this page (<b>hint:</b> when the null hypothesis is true, <span class="mathjax">\(\mu = 55,000\)</span>). 
-        To make the resulting plot, you can use base R or the <i>ggplot</i> library. If 
-    you have trouble implementing this method, don't worry - ChatGPT is quite good at it!</p>
+    <p id="paragraph0" class="hidden"> Copy and paste the following prompt into ChatGPT: 
+        <b>Consumer willingness to pay is normally distributed with mean $52,000 and standard deviation $9,000. 
+            Provide me with R code that simulates a random sample of 100 consumers and constructs a t-statistic
+            for average willingness to pay under the assumption that true willingness to pay is $55,000.
+            Repeat this process 500 times, generating 500 t-statistics. Then graph this distribution of 
+            t-statistics as a histogram.
+        </b></p>
 
 
 <div class="button-container">
-    <button onclick="toggleVisibility('paragraph5')">Click when finished</button>
+    <button onclick="toggleVisibility('paragraph8')">Show me the answer</button>
 </div>
 
-<p id="paragraph5" class="hidden"> You should have found that the t-statistic has a distribution that is approximately standard normal. In the next conceptual section, we will use this fact to develop
-    some intuition about p-values.</p>
+<p id="paragraph8" class="hidden"> R output from the ChatGPT prompt is shown <a href="https://www.dropbox.com/scl/fi/gg9v40bm04sh70xzu20bs/t_stats.png?rlkey=hbgur85yomvf01uqfh8b40iem&dl=0">here</a>. 
+    You should have found that the t-statistic has a distribution that is approximately standard normal. In the next conceptual section, we will use this fact to develop
+    some intuition about p-values. In this example, we know the values of the population parameters: in the real-world this is almost never the case. </p>
+
+    <hr> <!-- This is where the styled horizontal line appears -->
+
+    <p>
+        
+    </p>
+
     <div>
-		<button onclick="openPreviousPage()">Back to Problem: Stating Hypotheses</button>
+		<button onclick="openPreviousPage()">Previous Problem: Stating Hypotheses</button>
 		<script>
 			function openPreviousPage() {
 				window.location.href = "part3.html";

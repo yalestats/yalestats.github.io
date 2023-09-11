@@ -20,6 +20,11 @@
             display: flex;
       justify-content: center;
     }
+    hr {
+          border: none; /* Remove the default border */
+          height: 2px; /* Set the height */
+          background-color: #333; /* Set the color */
+        }
     </style>
     <script>
         function toggleVisibility(id) {
@@ -115,7 +120,7 @@
             approximately normally distributed with mean <span class="mathjax">\(\mu = $51,000\)</span> and standard deviation  <span class="mathjax">\(\sigma = $9,000\)</span>
             </p>
             <p>
-                1. Using R, construct a random sample of willingness to pay for 100 consumers. 
+                1.  <a href="https://rdrr.io/snippets/">Using R</a>, construct a random sample of willingness to pay for 100 consumers. 
                 Calculate the test statistic and p-value for the difference between these consumers' average willingness to pay and <span class="mathjax">\(\mu = $55,000\)</span>. 
             </p>
             <p>
@@ -156,7 +161,13 @@
     simulated probability of observing an outcome at least as extreme as the one you got in the original sample conditional 
      on the null hypothesis being true. That's just the empirical counterpart to the definition of a p-value! </p>
 
-     <div>
+     <hr> <!-- This is where the styled horizontal line appears -->
+
+    <p>
+        
+    </p>
+
+  <!--   <div>
 		<button onclick="openPreviousPage0()">Back to Previous Problem: Stating Hypotheses</button>
 		<script>
 			function openPreviousPage0() {
@@ -164,6 +175,8 @@
 			}
 		</script>
 	</div>
+
+    -->
 
     <div>
 		<button onclick="openPreviousPage()">Previous Conceptual Topic: Test Statistics</button>

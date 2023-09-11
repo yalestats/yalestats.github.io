@@ -16,6 +16,11 @@
         .button-container button {
             margin-bottom: 5px;
         }
+        hr {
+          border: none; /* Remove the default border */
+          height: 2px; /* Set the height */
+          background-color: #333; /* Set the color */
+        }
     </style>
     <script>
         function toggleVisibility(id) {
@@ -35,85 +40,84 @@
 <body>
     <h1>Question 1: Stating Hypotheses</h1>
     <div>
-        <p>We often want to know the relationship between two population parameters. 
-            Does an investment banking analyst make more on average than a software engineer? 
-            Do new associates at top law firms bill 2000 hours annually? 
+        <p> Does a change in a website's design increase conversion rates? 
+            Are investment bankers paid more than software engineers?
             </p> 
+
+            <p>
+
+            </p>
             
-            <p>Even if we collect data on the salaries of every investment banking analyst and software engineer 
-                or the billable hours of every legal associate, 
-                we still do not observe the population parameters that we want to know about. 
-                Why is this? Because every individual’s salary or recorded billable hours is a random variable that 
-                is drawn from an underlying <b>data generating process</b> (more on this in the previous conceptual pages). Ultimately, when we 
-                ask about a population parameter we are asking about a feature of this underlying model.
+            <p>When we collect sample data on the salaries of investment banking analysts
+                and software engineers or the conversion rates on a website, 
+                we do not observe the population parameters that we want to know about.  Instead, 
+                we must use our sample data to construct estimates of population parameters like true average earnings or true average conversion rates.
+
         </p> 
+
         <p>
-            The goal of any hypothesis test is to make an inference about these unknown 
-            population parameter(s) using sample data. 
-            Stating the right hypotheses can be tricky - we will walk through two examples below.
+            The goal of any hypothesis test is to make an inference about an unknown 
+            population parameter (e.g. true average earnings) using our sample data. <b>When we perform a hypothesis test</b>, the <i>alternative hypothesis</i> <span class="mathjax">\(H_1\)</span> is our new 
+            theory about the world, the <i>null hypothesis</i> <span class="mathjax">\(H_0\)</span> is the old view, and we seek evidence that might allow us to reject the old view in favor of our new theory.
         </p>
 
             <h3>Practice Problem</h3>
 
             <p>
-                <i>Note:</i> Let <span class="mathjax">\(\mu\)</span> denote the population average billable hours for new legal associates.
+                Let <span class="mathjax">\(\mu\)</span> denote the percentage increase in conversion rates with the new website design.
                 </p>
 		
-        <p>- You read that new legal associates at top law firms bill around 2000 hours annually. To test this, you manage to collect data on the billable hours 
-            of new legal associates from all firms in the Vault 100. As a next step, you write out the null (<span class="mathjax">\(H_0\)</span>) and alternative (<span class="mathjax">\(H_1\)</span>) hypotheses
-            for this research project. What are they?
+        <p> Your company is performing an A/B test that offers website users two different designs: the old design and the new design. 
+            They will implement the new design if it increases conversion rates by more than <span class="mathjax">\(10\%\)</span> but suspect it will not lead to a 
+            <span class="mathjax">\(10\%\)</span> increase 
+            You collect data from the A/B test to measure the impact of the redesign. How should you set up your hypothesis test?
             </p>
     </div>
 
     <div class="button-container">
-        <button onclick="toggleVisibility('paragraph1')"><span class="mathjax">\(H_0: \mu \ne 2000 \text{ and } H_1: \mu = 2000 \)</span></button>
-        <button onclick="toggleVisibility('paragraph2')"><span class="mathjax">\(H_0: \mu = 2000 \text{ and } H_1: \mu \ne 2000 \)</span></button>
+        <button onclick="toggleVisibility('paragraph2')"><span class="mathjax">\(H_0: \mu \le 10 \text{ and } H_1: \mu > 10 \)</span></button>
+        <button onclick="toggleVisibility('paragraph1')"><span class="mathjax">\(H_0: \mu \ge 10 \text{ and } H_1: \mu < 10 \)</span></button>
     </div>
 
 
-    <p id="paragraph1" class="hidden"><b>This is not correct.</b> A helpful hint is that the null hypothesis should always 
-    contain an equality, as it includes the possibility that there is no difference between the population parameter <span class="mathjax">\(\mu\)</span> 
-and the hypothesized value of 2000.</p>
+    <p id="paragraph1" class="hidden"><b>This is not correct.</b> Remember, the old view is that the new design does not lead to a 
+        <span class="mathjax">\(10\%\)</span> increase in the conversion rate. The alternative hypothesis should <b>always</b> represent your new theory.</p>
         <p id="paragraph2" class="hidden"><b>This is correct!</b></p>
 
     <h3>Practice Problem</h3>
 
-    <i>Note:</i> Let <span class="mathjax">\(\mu_A\)</span> denote the population average salary at investment bank A and 
-    <span class="mathjax">\(\mu_B\)</span> denote the population average salary at tech company B.
+    Let <span class="mathjax">\(\mu_I\)</span> denote the true average salary of investment bankers and 
+    <span class="mathjax">\(\mu_S\)</span> denote the true average salary of software engineers.
     </p>
 		
-    <p>- You have a friend who is deciding between job offers from an investment bank A 
-        and a tech company B. They prefer the culture at B 
-        but are concerned that A might offer higher wages. You decide to use wage data on Glassdoor to evaluate this concern by <i>
-            looking for evidence that A offers higher wages than B.
-        </i> What hypotheses are 
-        you testing with the Glassdoor wage data?
+    <p> You read in a recent New York Times op-ed that investment bankers are now paid less than software engineers. You don't think this is true and decide to collect salary data to test your 
+        hypothesis that investment bankers are paid more than software engineers on average. How should you set up your hypothesis test?
         </p>
 </div>
 
 <div class="button-container">
-    <button onclick="toggleVisibility('paragraph3')"><span class="mathjax">\(H_0: \mu_A \le \mu_B \text{ and } H_1: \mu_A > \mu_B\)</span></button>
-    <button onclick="toggleVisibility('paragraph4')"><span class="mathjax">\(H_0: \mu_A \ge \mu_B \text{ and } H_1: \mu_A < \mu_B\)</span></button>
+    <button onclick="toggleVisibility('paragraph3')"><span class="mathjax">\(H_0: \mu_I \le \mu_S \text{ and } H_1: \mu_I > \mu_S\)</span></button>
+    <button onclick="toggleVisibility('paragraph4')"><span class="mathjax">\(H_0: \mu_I \ge \mu_S \text{ and } H_1: \mu_I < \mu_S\)</span></button>
 </div>
 
 <p>
     
 
 <p id="paragraph3" class="hidden"><b>This is correct!</b></p>
-    <p id="paragraph4" class="hidden"><b>This is not correct.</b> Remember, we are seeking evidence that A offers higher wages 
-    than B. The alternative hypothesis is <b>always</b> the claim for which we are seeking evidence.</p>
+    <p id="paragraph4" class="hidden"><b>This is not correct.</b> Remember, you are proposing that investment bankers are paid more (<i>not less</i>) than 
+        software engineers. The alternative hypothesis should <b>always</b> represent your new theory.</p>
 
-    <p>
-        <div class="button-container">
-            <button onclick="toggleVisibility('paragraph5')"> Click after completing practice problems </button>
-        </div>
-        <p id="paragraph5" class="hidden"> <b>A final word on constructing null and alternative hypotheses:</b> two helpful hints are (1) the null hypothesis always contains an equality (either <span class="mathjax">\(=\)</span>, <span class="mathjax">\(\le\)</span>, or <span class="mathjax">\(\ge\)</span>) and 
-            (2) the alternative hypothesis is the claim for which we are seeking evidence (it would be bad science to fail to reject this claim just because the data doesn't convincingly suggest the opposite relationship holds). </p>
-    </p>
 
-    <p>
+
+ <!--   <p>
         We will discuss these ideas in more detail in the next few conceptual pages as we review some key ideas that illustrate how to perform hypothesis tests using sample data.
         If you'd like to skip ahead to the next application, click the link for <i><b>Hypothesis Testing</b></i>.
+    </p>-->
+
+    <hr> <!-- This is where the styled horizontal line appears -->
+
+    <p>
+        
     </p>
     <div>
 		<button onclick="openPreviousPage()">Previous Conceptual Topic: Confidence Intervals</button>
@@ -133,7 +137,7 @@ and the hypothesized value of 2000.</p>
 		</script>
 	</div>
 
-    <div>
+<!--    <div>
 		<button onclick="openNewPage1()">Skip to Next Problem: Hypothesis Testing</button>
 		<script>
 			function openNewPage1() {
@@ -141,6 +145,8 @@ and the hypothesized value of 2000.</p>
 			}
 		</script>
 	</div>
+
+    -->
 	
 	<script>
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementsByClassName("mathjax")]);

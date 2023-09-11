@@ -15,6 +15,11 @@
         .button-container button {
             margin-bottom: 5px;
         }
+        hr {
+          border: none; /* Remove the default border */
+          height: 2px; /* Set the height */
+          background-color: #333; /* Set the color */
+        }
     </style>
     <script>
         function toggleVisibility(id) {
@@ -43,33 +48,88 @@
         
         
         <p>
-            Suppose we have 2 different sample of 10 rolls of a fair die: <i>{4, 1, 6, 2, 5, 4, 1, 3, 6, 2}</i> and <i>{3, 5, 2, 6, 6, 3, 4, 2, 3, 5}</i>. What are the sample averages in these samples? 
-           You should get <span class="mathjax">\(\frac{4 + 1 + 6 + 2 + 5 + 4 + 1 + 3 + 6 + 2}{10} = 3.4\)</span> and <span class="mathjax">\(\frac{3 + 5 + 2 + 6 + 6 + 3 + 4 + 2 + 3 + 5}{10} = 3.9\)</span>. 
+            Suppose we have 2 different sample of 10 rolls of a fair die: <span class="mathjax"> \( \{4, 1, 4, 2, 5, 4, 1, 3, 6, 2\} \)</span> and <span class="mathjax"> \( \{3, 5, 2, 6, 6, 3, 4, 2, 3, 5\} \)</span>. Call the first <b>sample 1</b> and the second 
+            <b>sample 2</b>. What is the average roll in each sample? 
+
+            <div class="button-container">
+                <button onclick="toggleVisibility('paragraph0')">3.5 in both sample 1 and sample 2 </button>
+            </div>
+
+            <div class="button-container">
+                <button onclick="toggleVisibility('paragraph1')">3.2 in sample 1 and 3.9 in sample 2</button>
+            </div>
+
+            <div class="button-container">
+                <button onclick="toggleVisibility('paragraph2')"> 4 in sample 1 and 3 in sample 2</button>
+            </div>
+
+            <p id="paragraph0" class="hidden"><b>Not quite!</b> This is the population average. If we denote each roll by 
+                <span class="mathjax">\(x_i\)</span>, the sample average is given by 
+                <span class="mathjax">$$\frac{\sum_{i} x_i}{N}$$</span>
+                where <span class="mathjax">\(N\)</span> is the number of observations (rolls) in the sample. Try using this formula!
             </p>
-            <p>
+            <p id="paragraph1" class="hidden"><b>Great!</b> You've correctly calculated the sample averages. As a reminder, if we denote each roll by 
+                <span class="mathjax">\(x_i\)</span>, the sample average is given by 
+                <span class="mathjax">$$\frac{\sum_{i} x_i}{N}$$</span>
+                where <span class="mathjax">\(N\)</span> is the number of observations (rolls) in the sample.
                 Notice that <b>neither</b> of the sample averages above is equal to the population average of 3.5. Despite this, we use sample averages like the ones above to estimate population averages when population averages are unknown. The same is true for other population parameters.
             </p>
+            <p id="paragraph2" class="hidden"><b>Not quite!</b> These are the modes (most frequently occurring rolls). If we denote each roll by 
+                <span class="mathjax">\(x_i\)</span>, the sample average is given by 
+                <span class="mathjax">$$\frac{\sum_{i} x_i}{N}$$</span>
+                where <span class="mathjax">\(N\)</span> is the number of observations (rolls) in the sample. Try using this formula!
+            </p>
+            </div>
+
+            <!--You should get <span class="mathjax">\(\frac{4 + 1 + 4 + 2 + 5 + 4 + 1 + 3 + 6 + 2}{10} = 3.2\)</span> and <span class="mathjax">\(\frac{3 + 5 + 2 + 6 + 6 + 3 + 4 + 2 + 3 + 5}{10} = 3.9\)</span>. -->
+
+            </p>
+            
+            <h3>Practice Problem</h3>
 
             <p>
-            Now let's switch gears to an example problem that will help illustrate the relationship between population parameters and sample estimates. <b>Note:</b> This practice problem asks you to use R to perform a simulation. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
-            to set a value for the random seed before beginning. <b>If you are confused, try asking ChatGPT before clicking the help button.</b>
-            </p>
-            <h3>Practice Problem</h3>
+                Now let's switch gears to an example problem that will help illustrate the relationship between population parameters and sample estimates. <b>Note:</b> This practice problem asks you to use R to perform a simulation. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
+                to set a value for the random seed before beginning. <b>If you are confused, try asking ChatGPT before clicking the help button.</b>
+                </p>
 		
-        <p> - Suppose the earnings of adults in Nashville, Tennessee are approximately normally distributed with mean  <span class="mathjax"> \( \mu = 150,000 \)</span> and 
-            standard deviation <span class="mathjax"> \( \sigma = 30,000 \)</span>. 
-            This will be our data generating process. Use R to construct 100 different random samples of <span class="mathjax"> \( 1,000 \)</span> individuals from this population. Calculate and store 
-            the sample averages for the <span class="mathjax"> \( \mu = 100 \)</span> samples in a single vector. Are any equal to <span class="mathjax"> \( \mu = 150,000 \)</span>? 
-            </p>
+        <p> Suppose the earnings of adults in Nashville, Tennessee are approximately normally distributed with mean  <span class="mathjax"> \( \mu = 150,000 \)</span> and 
+            standard deviation <span class="mathjax"> \( \sigma = 30,000 \)</span>.  <a href="https://rdrr.io/snippets/">Use R</a> to construct 4 different random samples of <span class="mathjax"> \( 7 \)</span> individuals from this population.
+            You can think of these samples as 4 annual observations of each person's earnings. Answer the following questions:
+        </p>
+
+        <p>
+            1. What are the population parameters in this example?
+        </p>
+        <p>
+            2. What are the sample averages for each individual?
+        </p>
     
             <div class="button-container">
-                <button onclick="toggleVisibility('paragraph1')">I don't know where to start</button>
+                <button onclick="toggleVisibility('paragraph3')">I don't know where to start</button>
             </div>
         
-            <p id="paragraph1" class="hidden">You should implement a <b>for</b> loop in R. In each iteration of the loop, draw 1,000 normally 
-            distributed random variables at once using the <i>rnorm()</i> command. In the same loop iteration, take the average of these 1,000 random variables. If 
-        you have trouble implementing this method, don't worry - ChatGPT is quite good at it!</p>
-    </div>
+            <p id="paragraph3" class="hidden">Copy and paste this prompt into ChatGPT: <b>Population earnings are normally 
+                distributed with mean <span class="mathjax"> \(150,000 \)</span> and standard deviation <span class="mathjax"> \(30,000 \)</span>. Provide 
+                me with R code that constructs 4 different random samples of 7 individuals from this population. 
+                Treating each sample as an annual observation of each person's earnings, calculate the average earnings of each individual across the 4 samples. </b></p>
+
+            <div class="button-container">
+                <button onclick="toggleVisibility('paragraph4')">Show me the answer</button>
+            </div>
+        
+            <p id="paragraph4" class="hidden">
+            
+
+                R output from the ChatGPT prompt is shown <a href="https://www.dropbox.com/scl/fi/vbvu327ut8udbpb62zqsu/r_output.png?rlkey=3e5t0rj0bs0kkqd8salwvh481&dl=0">here</a>. The population earnings parameters are <span class="mathjax"> \( \mu = 150,000 \)</span>
+            and <span class="mathjax"> \( \sigma = 30,000 \)</span>. In this example, we know the values of the population parameters: <b>in the real-world 
+                this is almost never the case</b>. The sample average earnings are <span class="mathjax"> \(\$130,504.9 \)</span>,
+            <span class="mathjax"> \(\$148,829.1 \)</span>, <span class="mathjax"> \(\$156,615.0 \)</span>, 
+            <span class="mathjax"> \(\$140,272.0 \)</span>, 
+            <span class="mathjax"> \(\$146,278.2 \)</span>, 
+            <span class="mathjax"> \(\$168,606.2 \)</span>, 
+            and <span class="mathjax"> \(\$147,428.6 \)</span>. 
+         </p>
+    </p>
 
 
     <div>
