@@ -4,7 +4,7 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 
-    <title>Topic 5</title>
+    <title>The p-value</title>
     <style>
         .hidden {
             display: none;
@@ -44,24 +44,111 @@
 <body>
     <h1>Topic 4: The p-value</h1>
     <div>
-        <p>In the previous section, we used the Central Limit Theorem to show that the t-statistic is approximately normal distributed when 
+        <p>In the last section, we talked about how the Central Limit Theorem allows us 
+            to treat the t-statistic as if it follows a normal distribution. 
+            Now we're going to build on that and discuss p-values, a fundamental concept in hypothesis testing.</p>
+            
+            <!--In the previous section, we used the Central Limit Theorem to show that the t-statistic is approximately normal distributed when 
             <span class="mathjax">\(N>30\)</span>. Now we'll use this fact to construct p-values, an important building block of hypothesis testing.
-            So what is the p-value?
-            </p>
-            <p><b>A p-value is the probability of obtaining a 
-                test statistic at least as extreme as the one you calculated under the assumption that the null hypothesis is true.</b> </p> 
+            So what is the p-value? -->
+
+            
+            <p>So what's a p-value? Simply put, 
+                it's <b>the likelihood of getting a test statistic 
+                (like the t-statistic) that is as extreme or more extreme than what you've observed, 
+                assuming that your baseline theory (null hypothesis) is true.</b>
+                <!--<b>A p-value is the probability of obtaining a 
+                test statistic at least as extreme as the one you calculated under the assumption that the null hypothesis is true.</b>--> </p> 
+                <h3>Practice Problem</h3>
+                <p>
+                    Imagine that you're the car manufacturer from the previous page deciding whether you should begin offering a new line of electric trucks.
+                    Suppose you survey 30 consumers about their willingness to pay (WTP) for electric trucks and collect the following data:
+
+                    <div class="centered-figure">
+                        <figure>
+                            <img src="figures/survey_fig.png" alt="crit_image">
+                          </figure>
+                        </div>
+                    </p>
+
+                </p>
+
+                <p>
+                    As before, you will develop the new product line if average consumer WTP <span class="mathjax">\(\ \mu \)</span> is greater than <span class="mathjax">\(\$55,000\)</span>. On the previous page,
+                    we showed that the correct null and alternative hypotheses for this setting are <span class="mathjax">\(H_0: \mu \le $55,000\)</span>
+                    and <span class="mathjax">\(H_1: \mu > $55,000\)</span>. 
+                    
+                    <p>
+                        1. Using the survey summary statistics and hypotheses above, what 
+                        is the correct t-statistic for this problem?
+                    </p>
+                </p>
+
+                <div class="button-container">
+                    <button onclick="toggleVisibility('paragraph_a')"><span class="mathjax">\(\ \hat{t}  = -2.12 \)</span></button>
+                </div>
+                
+                <p id="paragraph_a" class="hidden"> <b>Great!</b> That's correct. </p>
+        
+                        <div class="button-container">
+                            <button onclick="toggleVisibility('paragraph_b')"><span class="mathjax">\(\ \hat{t}  = 2.12\)</span></button>
+                        </div>
+                        
+                        <p id="paragraph_b" class="hidden"> <b>Not quite.</b> Remember that <span class="mathjax">$$\hat{t} = \frac{\overline{X}-\mu}{s/\sqrt{N}}$$</span> 
+                            You should plug the values <span class="mathjax">\( \mu = 55,000\)</span>, <span class="mathjax">\( \overline{X} = 51,576.07\)</span>, 
+                            <span class="mathjax">\( s = 8829.28\)</span>, and <span class="mathjax">\( N = 30\)</span> into this formula.
+                        </p>
+
+                        <p>
+                            The area under the standard normal probability density function (PDF) beyond the test 
+                            statistic <span class="mathjax">\(\hat{t} \)</span> is the p-value.
+                            This is illustrated for the 3 different kinds of hypothesis tests (left, right, two-sided) below. The p-value measures the probability 
+                            of collecting an average WTP estimate at least as extreme as the one we calculated in our survey if the null hypothesis <span class="mathjax">\(H_0: \mu \le $55,000\)</span> is true.
+                        </p>
+
+                        <p>
+                            2. What is the p-value <span class="mathjax">\( p \)</span> corresponding to the t-statistic for this survey?
+                        </p>
+
+                        <div class="button-container">
+                            <button onclick="toggleVisibility('paragraph_c')"><span class="mathjax">\(\ p = 0.034 \)</span></button>
+                        </div>
+                        
+                        <p id="paragraph_c" class="hidden"> <b>Not quite.</b> You've identified the p-value for a two-sided hypothesis test. 
+                        In a two-sided hypothesis test, our new theory is <span class="mathjax">\(\ H_1: \mu \ne \$55,000 \)</span> <b> not </b> <span class="mathjax">\(H_1: \mu > $55,000\)</span>. 
+                        You can <a href="https://rdrr.io/snippets/">use R</a> to find the p-value <span class="mathjax">\(p = 1 - \Phi(-2.12)\)</span>.</p>
+                
+                                <div class="button-container">
+                                    <button onclick="toggleVisibility('paragraph_d')"><span class="mathjax">\(\ p = 0.017 \)</span></button>
+                                </div>
+                                
+                                <p id="paragraph_d" class="hidden"> <b>Not quite.</b> You've identified the p-value for a one-sided left tail hypothesis test. In a left tail 
+                                    hypothesis test, our new theory is <span class="mathjax">\(\ H_1: \mu < \$55,000 \)</span> <b> not </b> <span class="mathjax">\(H_1: \mu > $55,000\)</span>.
+                                    You can <a href="https://rdrr.io/snippets/">use R</a> to find the p-value <span class="mathjax">\(p = 1 - \Phi(-2.12)\)</span>.
+                                </p>
+
+                                <div class="button-container">
+                                    <button onclick="toggleVisibility('paragraph_e')"><span class="mathjax">\(\ p = 0.983 \)</span></button>
+                                </div>
+                                
+                                <p id="paragraph_e" class="hidden"> <b>Great!</b> This is correct. You've correctly identified that this is a one-sided right tail 
+                                    hypothesis test. Since the t-statistic closely follows a normal distribution, we can calculate this probability <span class="mathjax">\(p\)</span> using 
+                                    the standard normal Cumulative Distribution Function (CDF), represented by <span class="mathjax">\(\Phi(t)\)</span>. You should 
+                                    have <a href="https://rdrr.io/snippets/">used R</a> to find the p-value <span class="mathjax">\(p = 1 - \Phi(-2.12)\)</span>. 
+                                </p>
+
+
+
+                   
+                        <div style="border-top: 2px dashed black; width: 100%;"></div>
+           
             <p>
-                We use the t-statistic to construct the p-value. How? Suppose you calculate the t-statistic for some sample average. You call 
-                this t-statistic <span class="mathjax">\(\hat{t}\)</span>.
+                The different hypothesis test cases are illustrated below:
             </p>
 
-            <p>
-                There are 3 different cases to consider when constructing a p-value:
-            </p>
-
 
             <p>
-                a. The p-value for a one-sided right tail test is given by 
+                a. The p-value for a one-sided right tail hypothesis test <span class="mathjax">\(\ H_1: \mu > m \)</span> is given by 
                 <div class="centered-figure">
                     <figure>
                         <img src="figures/right_tail.png" alt="right">
@@ -72,7 +159,7 @@
             </p>
 
             <p>
-                b. The p-value for a one-sided left tail test is given by
+                b. The p-value for a one-sided left tail hypothesis test <span class="mathjax">\(\ H_1: \mu < m \)</span> is given by
                 <div class="centered-figure">
                     <figure>
                         <img src="figures/left_tail.png" alt="left">
@@ -83,7 +170,7 @@
             </p>
 
             <p>
-                c. The p-value for a two-tail test is given by
+                c. The p-value for a two-tail hypothesis test <span class="mathjax">\(\ H_1: \mu \ne m \)</span> is given by
                 <div class="centered-figure">
                     <figure>
                         <img src="figures/two_sided.png" alt="two_sided">
@@ -94,6 +181,9 @@
             </p>
 
             <p>
+        </p>
+
+           <!-- <p>
                 Because the t-statistic is approximately normally distributed, we know that
                 <span class="mathjax">$$\Pr(t \le \hat{t}) = \Phi(\hat{t})$$</span> where <span class="mathjax">\(\Phi(\cdot)\)</span>
                 is the standard normal CDF. In practice, you will use R or other statistical software to calculate <span class="mathjax">\(\Phi(\hat{t})\)</span> 
@@ -107,27 +197,29 @@
             Notice that <span class="mathjax">\(\overline{X}\)</span>, <span class="mathjax">\(s\)</span>, and 
             <span class="mathjax">\(N\)</span> are all features of the sample data. So what is <span class="mathjax">\(\mu\)</span>? It
             is the true mean under the assumption that the null hypothesis <span class="mathjax">\(H_0\)</span> is true. In fact, we <b>cannot</b> calculate a test statistic and perform a hypothesis test 
-            unless the null hypothesis is assumed to be true. <b>Note:</b> The following practice problem asks you to use R to perform a simulation. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
-            to set a value for the random seed before beginning. <b>If you are confused, try asking ChatGPT before clicking the help button.</b>
-        </p>
+            unless the null hypothesis is assumed to be true.
+        </p> -->
 
-            <h3>Practice Problem</h3>
+   <!--     <h3>Practice Problem</h3>
+
+            <b>Note:</b> This practice problem asks you to use R to perform a simulation. For reproducibility, you should use <i>set.seed(123)</i>
+ to set a value for the random seed before beginning. <b>If you are confused, try asking ChatGPT before clicking the help button.</b>
 
             
-        <p>- As in the last section, a car manufacturer is deciding whether they should begin offering a new line of electric trucks. They decide that they will offer these new vehicles 
+        <p> A car manufacturer is deciding whether they should begin offering a new line of electric trucks. They decide that they will offer these new vehicles 
             as long as market research suggests that consumers are willing to offer more than <span class="mathjax">\($55,000\)</span> for the trucks. 
             The manufacturer's marketing team designs a survey to elicit willingness to pay from a set of representative consumers. Suppose that true willingness to pay is
-            approximately normally distributed with mean <span class="mathjax">\(\mu = $51,000\)</span> and standard deviation  <span class="mathjax">\(\sigma = $9,000\)</span>
+            approximately normally distributed with mean <span class="mathjax">\(\mu = $52,000\)</span> and standard deviation  <span class="mathjax">\(\sigma = $9,000\)</span>
             </p>
             <p>
-                1.  <a href="https://rdrr.io/snippets/">Using R</a>, construct a random sample of willingness to pay for 100 consumers. 
+                1.  <a href="https://rdrr.io/snippets/">Using R</a>, construct a random sample of willingness to pay for 30 consumers. 
                 Calculate the test statistic and p-value for the difference between these consumers' average willingness to pay and <span class="mathjax">\(\mu = $55,000\)</span>. 
             </p>
             <p>
-                2. Construct a vector of 100 consumers with willingness to pay equal to exactly $55,000.
+                2. Construct a vector of 30 consumers with willingness to pay equal to exactly $55,000.
             </p>
             <p>
-                3. Now take these two sets of 100 consumer measures of willingness to pay (WTP) and randomly divide them into 2 groups of 100. 
+                3. Now take these two sets of 30 consumer measures of willingness to pay (WTP) and randomly divide them into 2 groups of 30. 
                 Calculate the test statistic for the difference in mean WTP between these two groups of 100. 
                 Repeat this process 500 times. 
                 <b>What does this accomplish?</b> You are simulating test statistics for the case when the 
@@ -161,11 +253,15 @@
     simulated probability of observing an outcome at least as extreme as the one you got in the original sample conditional 
      on the null hypothesis being true. That's just the empirical counterpart to the definition of a p-value! </p>
 
-     <hr> <!-- This is where the styled horizontal line appears -->
+    
 
     <p>
         
     </p>
+
+-->
+
+<hr> <!-- This is where the styled horizontal line appears -->
 
   <!--   <div>
 		<button onclick="openPreviousPage0()">Back to Previous Problem: Stating Hypotheses</button>
