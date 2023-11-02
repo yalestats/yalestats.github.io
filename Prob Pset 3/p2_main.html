@@ -41,12 +41,14 @@
         <button onclick="toggleVisibility('paragraph2')">4 percent</button>
         <button onclick="toggleVisibility('paragraph3')">0.4 percent</button>
         <button onclick="toggleVisibility('paragraph4')">Essentially 0 percent</button>
+		<button onclick="toggleVisibility('paragraph5')">Greater than 90 percent</button>
     </div>
     
-    <p id="paragraph1" class="hidden">This is an interesting problem that asks you to compute a <b>conditional probability</b>. In this case, this is the probability that you lost at least 20 units worth of sales given that you ran out of stock. How would you write this in conditional probability form? Can we use our knowledge of conditional probability formulas to manipulate this into a statement (or combination of statements) that we know how to calculate?</p>
-    <p id="paragraph2" class="hidden">Correct!</p>
+    <p id="paragraph1" class="hidden">This is an interesting problem that asks you to compute a <b>conditional probability</b> (you can tell that this is a conditional probability problem by the phrase "Given that demand exceeds 220 units" which invites you to assume that we are in a situation where we know that demand is larger than 220). In this case, this is the probability that you lost at least 20 units worth of sales given that you ran out of stock. How would you write this in conditional probability form? Can we use our knowledge of conditional probability formulas to manipulate this into a statement (or combination of statements) that we know how to calculate?</p>
+    <p id="paragraph2" class="hidden">Correct! After converting to a standard normal, the conditional probability we are seeking is P(z>2.67|z>1.33). Applying the conditional probability formula and noting that P(z>2.67 AND z>1.33)=P(z>2.67) (because is z is larger than 2.67 is will also always be larger than 1.33) yields the answer.</p>
     <p id="paragraph3" class="hidden">If you arrived at this answer, you probably calculated the probability that demand exceeds 240 units but failed to adjust for the fact that this problem asks you to compute a conditional probability. Consider reviewing the conditional probability formula and how it applies to this question.</p>
-    <p id="paragraph4" class="hidden">Incorrect.</p>
+    <p id="paragraph4" class="hidden">Incorrect. If you arrived at this answer, you most likely divided by the wrong standard deviation. Recall that the standard deviation is 15</p>
+	<p id="paragraph4" class="hidden">If you arrived at this answer, you likely flipped a "greater than" to a "less than". Recall that we are are trying to compute that probability that demand is <b>larger</b> than 240.</p>
 	
 	<div>
 		<button onclick="openNewPage()">Next Problem</button>

@@ -88,15 +88,14 @@
 -->
             <h3>Practice Problem</h3>
 
-          <!--  <b>Note:</b> This practice problem asks you to use R to perform a simulation. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
+            <b>Note:</b> This practice problem asks you to use R to perform a simulation. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
                 to set a value for the random seed before beginning. <b>If you are confused, try asking ChatGPT before clicking the help button.</b>
             
-		-->
-        <p> Suppose the expected earnings of each adult in Nashville, Tennessee are <span class="mathjax"> \( \mu = 150,000 \)</span> but vary year-to-year 
-            because of labor market shocks. This time you decide to survey 20 adults in Nashville, Tennessee on their earnings in a single year. The data is stored here: 
-            <a href="https://www.dropbox.com/scl/fi/wit05cn3umesj3yl1wsdy/earnings_twenty_nashville.csv?rlkey=gtnksh651fciirkuo1ylmhwus&dl=0" download>link to data</a>. 
-            Use this survey data to 
-            construct a 95% confidence interval for the population average earnings among Nashville adults in Excel as follows:
+		
+        <p> As before, suppose the earnings of adults in Nashville, Tennessee are approximately normally distributed with mean  <span class="mathjax"> \( \mu = 150,000 \)</span> and 
+            standard deviation <span class="mathjax"> \( \sigma = 30,000 \)</span>. <a href="https://rdrr.io/snippets/">Use R</a> to construct a single sample containing 
+            the earnings of 20 Nashville residents. Use this sample to 
+            construct a 95% confidence interval for the population average earnings among Nashville adults as follows:
 
             <p>
                 i. Calculate <span class="mathjax"> \( \overline{X} \)</span> - the average earnings among the 20 adults
@@ -114,33 +113,29 @@
 
             <div class="button-container">
                 <button onclick="toggleVisibility('paragraph_a')">
-                    <span class="mathjax"> \( [\$126,664.10, \$150,767.10] \)</span>
+                    <span class="mathjax"> \( [\$141,460.3, \$167,037.2] \)</span>
                     </button>
             </div>
             <div class="button-container">
-                <button onclick="toggleVisibility('paragraph_b')"><span class="mathjax"> \( [\$128,693.10, \$148,738.10] \)</span></button>
+                <button onclick="toggleVisibility('paragraph_b')"><span class="mathjax"> \( [\$143,516.3, \$164,981.1] \)</span></button>
             </div>
-         <!--   <div class="button-container">
+            <div class="button-container">
                 <button onclick="toggleVisibility('paragraph_c')">I don't know where to start</button>
             </div>
-
-            -->
 
             <p id="paragraph_a" class="hidden"><b>Great!</b> This is the correct formula. Remember what this means: if we sampled
                 earnings data from the Nashville population over and over again, 95% of the confidence intervals we construct using this formula
                 will contain <span class="mathjax"> \( \mu = \$150,000\)</span>.
             </p>
 
-            <p id="paragraph_b" class="hidden"><b>Not quite.</b> Make sure you use the correct critical value of 1.96.
+            <p id="paragraph_b" class="hidden"><b>Not quite.</b> Make sure you use the correct critical value of 1.96 and set the random seed to 123.
             </p>
-<!--
+
             <p id="paragraph_c" class="hidden">Copy and paste the following prompt into ChatGPT: <b>Population earnings are normally distributed with mean 150,000
                 and standard deviation 30,000. Provide me with R code that constructs a random sample of 20
                 individuals from this population, calculates a 95% confidence interval for the population average earnings using the sample average earnings 
             and sample standard deviation, and counts the number of individual observations that lie within the 95% confidence interval.</b>
             </p>
-
-            -->
 
             <p>
                 <b>Does the confidence interval contain 95% of the adults in the sample? </b>
@@ -155,11 +150,10 @@
         <button onclick="toggleVisibility('paragraph1')">No</button>
     </div>
 
-    <p id="paragraph0" class="hidden"><b>Not quite.</b> You should count the number of adults with earnings in the range <span class="mathjax"> \( [\$126,664.10, \$150,767.10] \)</span>.
-    Are there 19 (95% of 20) in this range? </p>
+    <p id="paragraph0" class="hidden"><b>Not quite.</b> Try using the ChatGPT prompt under the previous help button.</p>
 </div>
 
-    <p id="paragraph1" class="hidden"><b>Great!</b> Only 6 of the individual observations are contained in the confidence interval. That's because an  <span class="mathjax"> \( X\% \)</span>
+    <p id="paragraph1" class="hidden"><b>Great!</b> Only 8 of the individual observations are contained in the confidence interval. That's because an  <span class="mathjax"> \( X\% \)</span>
     confidence interval doesn't contain  <span class="mathjax"> \( X\% \)</span> of the observations in a sample. Instead,
     confidence intervals are constructed in such a way that, if you keep regenerating the observed data from the underlying true model, the confidence interval will contain the true parameter <span class="mathjax"> \( X\% \)</span>
  of the time. </p>
@@ -209,10 +203,10 @@ you have trouble implementing this method, don't worry - ChatGPT is quite good a
 	</div>
 
 	<div>
-		<button onclick="openNewPage()">Next Problem: What Does it Mean to Test a Hypothesis?</button>
+		<button onclick="openNewPage()">Next Problem: Stating Hypotheses</button>
 		<script>
 			function openNewPage() {
-				window.location.href = "part3a.html";
+				window.location.href = "part3.html";
 			}
 		</script>
 	</div>

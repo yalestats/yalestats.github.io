@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <title>Stating Hypotheses</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+        hr {
+          border: none; /* Remove the default border */
+          height: 2px; /* Set the height */
+          background-color: #333; /* Set the color */
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Question 1.2: Stating Hypotheses</h1>
+    <div>
+        <p> Does a change in a website's design increase conversion rates? 
+            Are investment bankers paid more than software engineers?
+            </p> 
+
+            <p>
+
+            </p>
+            
+            <p>When we collect sample data on the salaries of investment banking analysts
+                and software engineers or the conversion rates on a website, 
+                we do not observe the population parameters that we want to know about.  Instead, 
+                we must use our sample data to construct estimates of population parameters like true average earnings or true average conversion rates.
+
+        </p> 
+
+        <p>
+            The goal of any hypothesis test is to make an inference about an unknown 
+            population parameter (e.g. true average earnings) using our sample data. <b>When we perform a hypothesis test</b>, the <i>alternative hypothesis</i> <span class="mathjax">\(H_1\)</span> is our new 
+            theory about the world, the <i>null hypothesis</i> <span class="mathjax">\(H_0\)</span> is the old view, and we seek evidence that might allow us to reject the old view in favor of our new theory.
+        </p>
+
+            <h3>Practice Problem</h3>
+
+            <p>
+                Let <span class="mathjax">\(\mu\)</span> denote the percentage increase in conversion rates with the new website design.
+                </p>
+		
+        <p> Your company is performing an A/B test that offers website users two different designs: the old design and the new design. 
+            They will implement the new design if it increases conversion rates by more than <span class="mathjax">\(10\%\)</span> but suspect it will not lead to a 
+            <span class="mathjax">\(10\%\)</span> increase 
+            You collect data from the A/B test to measure the impact of the redesign. How should you set up your hypothesis test?
+            </p>
+    </div>
+
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph2')"><span class="mathjax">\(H_0: \mu \le 10 \text{ and } H_1: \mu > 10 \)</span></button>
+        <button onclick="toggleVisibility('paragraph1')"><span class="mathjax">\(H_0: \mu \ge 10 \text{ and } H_1: \mu < 10 \)</span></button>
+    </div>
+
+
+    <p id="paragraph1" class="hidden"><b>This is not correct.</b> Remember, the old view is that the new design does not lead to a 
+        <span class="mathjax">\(10\%\)</span> increase in the conversion rate. The alternative hypothesis should <b>always</b> represent your new theory.</p>
+        <p id="paragraph2" class="hidden"><b>This is correct!</b></p>
+
+    <h3>Practice Problem</h3>
+
+    Let <span class="mathjax">\(\mu_I\)</span> denote the true average salary of investment bankers and 
+    <span class="mathjax">\(\mu_S\)</span> denote the true average salary of software engineers.
+    </p>
+		
+    <p> You read in a recent New York Times op-ed that investment bankers are now paid less than software engineers. You don't think this is true and decide to collect salary data to test your 
+        hypothesis that investment bankers are paid more than software engineers on average. How should you set up your hypothesis test?
+        </p>
+</div>
+
+<div class="button-container">
+    <button onclick="toggleVisibility('paragraph3')"><span class="mathjax">\(H_0: \mu_I \le \mu_S \text{ and } H_1: \mu_I > \mu_S\)</span></button>
+    <button onclick="toggleVisibility('paragraph4')"><span class="mathjax">\(H_0: \mu_I \ge \mu_S \text{ and } H_1: \mu_I < \mu_S\)</span></button>
+</div>
+
+<p>
+    
+
+<p id="paragraph3" class="hidden"><b>This is correct!</b></p>
+    <p id="paragraph4" class="hidden"><b>This is not correct.</b> Remember, you are proposing that investment bankers are paid more (<i>not less</i>) than 
+        software engineers. The alternative hypothesis should <b>always</b> represent your new theory.</p>
+
+
+
+ <!--   <p>
+        We will discuss these ideas in more detail in the next few conceptual pages as we review some key ideas that illustrate how to perform hypothesis tests using sample data.
+        If you'd like to skip ahead to the next application, click the link for <i><b>Hypothesis Testing</b></i>.
+    </p>-->
+
+    <hr> <!-- This is where the styled horizontal line appears -->
+
+    <p>
+        
+    </p>
+    <div>
+		<button onclick="openPreviousPage()">Previous Problem: What Does it Mean to Test a Hypothesis?</button>
+		<script>
+			function openPreviousPage() {
+				window.location.href = "part3a.html";
+			}
+		</script>
+	</div>
+
+	<div>
+		<button onclick="openNewPage()">Next Conceptual Topic: Test Statistics</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "part4.html";
+			}
+		</script>
+	</div>
+
+<!--    <div>
+		<button onclick="openNewPage1()">Skip to Next Problem: Hypothesis Testing</button>
+		<script>
+			function openNewPage1() {
+				window.location.href = "part6.html";
+			}
+		</script>
+	</div>
+
+    -->
+	
+	<script>
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementsByClassName("mathjax")]);
+      </script>
+      
+</body>
+</html>

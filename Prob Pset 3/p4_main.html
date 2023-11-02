@@ -36,6 +36,7 @@
 		<p>The advantage of this warehouse is that it is close enough to ship stock to stores on demand. In other words, as long as the total demand at all three stores does not exceed the stock stored in the warehouse, none of the stores will run out of stock.</p>
 		<p>In the previous question, you found that providing a store with a stock of 235 yielding about a 1 percent chance of a stock out. Intuitively then, you think that stocking the warehouse (which supplies three stores) with 3x235 = 705 units seems about right.</p>
 		<p>What is the probability that the warehouse runs out of stock if it is stocked with 705 units? (Assume for now that demand at all three stores is independent)</p>
+		<p>Recall that the demand for a single store is normally distributed with mean 200 and standard deviation 15.</p>
     </div>
     
     <div class="button-container">
@@ -45,9 +46,9 @@
         <button onclick="toggleVisibility('paragraph4')">56 percent</button>
     </div>
     
-    <p id="paragraph1" class="hidden">Note that the warehouse runs out of stock if the <b>total demand</b> from all three stores exceeds 705. How can we calculate a random variable that describes the total demand of all three stores? [Probably put a practice question here]</p>
-    <p id="paragraph2" class="hidden">Correct!</p>
-    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably tried to “shortcut” by assuming that tripling the stock to supply three stores would not change the probability of running out. That is not the case! The reason for this is that when one store has a particularly high demand shock, there is a case that this will be “canceled out” by a particularly low demand shock at one of the other two stores. You need to figure out how to construct a random variable describing the new distribution of demand!</p>
+    <p id="paragraph1" class="hidden">Note that the warehouse runs out of stock if the <b>total demand</b> from all three stores exceeds 705. How can we calculate a random variable that describes the total demand of all three stores? To figure out the answer, it's important to remember that a new random variable created as a linear combination of Normal random variables will itself be a normal random variable.</p>
+    <p id="paragraph2" class="hidden">Correct! The key in this problem is to create a new random variable Y that is equal to the same of the demand from the three stores. We can then use our rules about means and variances of linear combinations of random variables to compute the mean and variance of Y. Then since we know Y is normally distributed (since it is the linear combination of normals), we know the whole distribution of Y and can compute the desired probability as usual.</p>
+    <p id="paragraph3" class="hidden">If you arrived at this answer, you probably tried to “shortcut” by assuming that tripling the stock to supply three stores would not change the probability of running out (or you computed the standard deviation of the new variable by simply tripling the standard deviation for an individual store). That is not the case! The reason for this is that when one store has a particularly high demand shock, there is a case that this will be “canceled out” by a particularly low demand shock at one of the other two stores. You need to figure out how to construct a random variable describing the new distribution of demand!</p>
     <p id="paragraph4" class="hidden">If you arrived at this answer, you probably computed the standard deviation of the new random variable incorrectly! Namely, you probably use the variance rather than the standard deviation (don’t forget to take the square root after summing!).</p>
 	
 	<div>

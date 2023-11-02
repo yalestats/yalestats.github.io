@@ -60,16 +60,16 @@
             </p>
 
             <p>
-                The most common test statistic is the z-statistic. The formula for the z-statistic for a sample average is given by 
-                <span class="mathjax">$$z = \frac{\overline{X} - \mu}{s/\sqrt{N}} $$</span> where <span class="mathjax">\(\overline{X}\)</span> is 
+                The most common test statistic is the t-statistic. The formula for the t-statistic for a sample average is given by 
+                <span class="mathjax">$$t = \frac{\overline{X} - \mu}{s/\sqrt{N}} $$</span> where <span class="mathjax">\(\overline{X}\)</span> is 
                 the sample average, <span class="mathjax">\(s\)</span> is the sample standard deviation, 
                 <span class="mathjax">\(N\)</span> is the sample size, and <span class="mathjax">\(\mu\)</span> is the population average 
                 <b>under the assumption that the null hypothesis is true</b>.
             </p>
             
             <p>
-You should be familiar with the z-statistic from course lectures. 
-Because of the Central Limit Theorem, we know that the z-statistic is approximately normally distributed when <span class="mathjax">\(N>30\)</span>.
+You should be familiar with the t-statistic from course lectures. 
+Because of the Central Limit Theorem, we know that the t-statistic is approximately normally distributed when <span class="mathjax">\(N>30\)</span>.
 This <b>crucial</b> result allows us to use sample data generated from <i>any</i> unknown distribution to form a test statistic with a known distribution (standard normal). 
 All we need are 3 basic sample statistics: the sample average, the sample standard deviation, and the sample size! 
         </p> 
@@ -81,10 +81,9 @@ All we need are 3 basic sample statistics: the sample average, the sample standa
 -->  
             <h3>Practice Problem</h3>
 
-       <!--     <p><b>Note:</b> This practice problem asks you to use R to perform a simulation. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
+            <p><b>Note:</b> This practice problem asks you to use R to perform a simulation. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
                 to set a value for the random seed before beginning. <b>If you are confused, try asking ChatGPT before clicking the help button.</b></p>
-		-->
-
+		
         <p> A car manufacturer is deciding whether they should begin offering a new line of electric trucks. They decide that they will offer these new vehicles 
             as long as market research suggests that the average consumer is willing to offer more than <span class="mathjax">\(\$55,000\)</span> for the trucks. 
             The manufacturer's marketing team designs a survey to elicit willingness to pay from a set of representative consumers. 
@@ -110,15 +109,10 @@ All we need are 3 basic sample statistics: the sample average, the sample standa
                     reflect your new theory, not the previous view about consumer willingness to pay.</p>
             <p>
 
-                To measure average willingness to pay, you survey 100 consumers and ask them about their willingness to pay for the new electric truck. 
-                The data is collected and stored here: 
-                <a href="https://www.dropbox.com/scl/fi/8e341qy9srfwmu4m0m5it/wtp_truck.csv?rlkey=y6nlhby2dhayvjehdm5pefiot&dl=0" download>link to data</a>. 
-
-      <!--      Now suppose that true willingness to pay is approximately normally distributed 
+            Now suppose that true willingness to pay is approximately normally distributed 
             with mean <span class="mathjax">\(\mu = \$52,000\)</span> and standard deviation  <span class="mathjax">\(\sigma = \$9,000\)</span>. <a href="https://rdrr.io/snippets/">Using R</a>, 
-            simulate a random sample of 100 consumers and construct a z-statistic <i>under the assumption the null hypothesis from (1) is true</i>. 
-            -->
-            The next step is to construct the z-statistic for this hypothesis test using the survey data you collected. You can do this by following the steps below:
+            simulate a random sample of 100 consumers and construct a t-statistic <i>under the assumption the null hypothesis from (1) is true</i>. To 
+            construct the t-statistic, follow the steps below:
 
             <p>
                 i. Calculate the average willingness to pay <span class="mathjax">\(\overline{X} \)</span></button> among the 100 consumers 
@@ -128,37 +122,25 @@ All we need are 3 basic sample statistics: the sample average, the sample standa
                     ii. Calculate the standard deviation of willingness to pay <span class="mathjax">\(s \)</span></button> among the 100 consumers
                 </p>
                 <p>
-                    iii. Use the provided formula along with these statistics and the value of <span class="mathjax">\(\mu \)</span></button> and <span class="mathjax">\(N \)</span></button> to form the z-statistic
+                    iii. Use the provided formula along with these statistics and the value of <span class="mathjax">\(\mu \)</span></button> and <span class="mathjax">\(N \)</span></button> to form the t-statistic
                 </p>
 
-            2. What is the correct z-statistic?
+            2. Repeat this process 500 times and plot the distribution of t-statistics across all the iterations.
             </p>
 
-            <div class="button-container">
-                <button onclick="toggleVisibility('paragraph_c')"><span class="mathjax">\(z =-0.74\)</span></button>
-            </div>
-
-            <div class="button-container">
-                <button onclick="toggleVisibility('paragraph_d')"><span class="mathjax">\(z = -2.36\)</span></button>
-            </div>
-
-            <p id="paragraph_c" class="hidden"> <b>This is correct!</b> Nice job plugging the sample statistics 
-                <span class="mathjax">\(\overline{X} = \$54,341.90\)</span> and <span class="mathjax">\(s = \$8870.21 \)</span> into the z-statistic formula on this page.</p></p>
-            <p id="paragraph_d" class="hidden"> <b>This is not correct.</b> You should plug the sample statistics 
-                <span class="mathjax">\(\overline{X} = \$54,341.90\)</span> and <span class="mathjax">\(s = \$8870.21 \)</span> into the z-statistic formula on this page.</p>
             
     </div>
 
-    <!--
-
-    
+    <div class="button-container">
+        <button onclick="toggleVisibility('paragraph0')">I don't know where to start</button>
+    </div>
     
     <p id="paragraph0" class="hidden"> Copy and paste the following prompt into ChatGPT: 
         <b>Consumer willingness to pay is normally distributed with mean $52,000 and standard deviation $9,000. 
-            Provide me with R code that simulates a random sample of 100 consumers and constructs a z-statistic
+            Provide me with R code that simulates a random sample of 100 consumers and constructs a t-statistic
             for average willingness to pay under the assumption that true willingness to pay is $55,000.
-            Repeat this process 500 times, generating 500 z-statistics. Then graph this distribution of 
-            z-statistics as a histogram.
+            Repeat this process 500 times, generating 500 t-statistics. Then graph this distribution of 
+            t-statistics as a histogram.
         </b></p>
 
 
@@ -167,9 +149,8 @@ All we need are 3 basic sample statistics: the sample average, the sample standa
 </div>
 
 <p id="paragraph8" class="hidden"> R output from the ChatGPT prompt is shown <a href="https://www.dropbox.com/scl/fi/gg9v40bm04sh70xzu20bs/t_stats.png?rlkey=hbgur85yomvf01uqfh8b40iem&dl=0">here</a>. 
-    You should have found that the z-statistic has a distribution that is approximately standard normal. In the next conceptual section, we will use this fact to develop
+    You should have found that the t-statistic has a distribution that is approximately standard normal. In the next conceptual section, we will use this fact to develop
     some intuition about p-values. In this example, we know the values of the population parameters: in the real-world this is almost never the case. </p>
--->
 
     <hr> <!-- This is where the styled horizontal line appears -->
 

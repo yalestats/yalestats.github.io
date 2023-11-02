@@ -45,7 +45,7 @@
     <h1>Topic 4: The p-value</h1>
     <div>
         <p>In the last section, we talked about how the Central Limit Theorem allows us 
-            to treat the z-statistic as if it follows a normal distribution. 
+            to treat the t-statistic as if it follows a normal distribution. 
             Now we're going to build on that and discuss p-values, a fundamental concept in hypothesis testing.</p>
             
             <!--In the previous section, we used the Central Limit Theorem to show that the t-statistic is approximately normal distributed when 
@@ -62,7 +62,7 @@
                 <h3>Practice Problem</h3>
                 <p>
                     Imagine that you're the car manufacturer from the previous page deciding whether you should begin offering a new line of electric trucks.
-                    Now you survey 30 different consumers about their willingness to pay (WTP) for electric trucks and collect the following data:
+                    Suppose you survey 30 consumers about their willingness to pay (WTP) for electric trucks and collect the following data:
 
                     <div class="centered-figure">
                         <figure>
@@ -80,44 +80,34 @@
                     
                     <p>
                         1. Using the survey summary statistics and hypotheses above, what 
-                        is the correct z-statistic for this problem?
+                        is the correct t-statistic for this problem?
                     </p>
                 </p>
 
                 <div class="button-container">
-                    <button onclick="toggleVisibility('paragraph_a')"><span class="mathjax">\(\ \hat{z}  = -2.12 \)</span></button>
+                    <button onclick="toggleVisibility('paragraph_a')"><span class="mathjax">\(\ \hat{t}  = -2.12 \)</span></button>
                 </div>
                 
                 <p id="paragraph_a" class="hidden"> <b>Great!</b> That's correct. </p>
         
                         <div class="button-container">
-                            <button onclick="toggleVisibility('paragraph_b')"><span class="mathjax">\(\ \hat{z}  = 2.12\)</span></button>
+                            <button onclick="toggleVisibility('paragraph_b')"><span class="mathjax">\(\ \hat{t}  = 2.12\)</span></button>
                         </div>
                         
-                        <p id="paragraph_b" class="hidden"> <b>Not quite.</b> Remember that <span class="mathjax">$$\hat{z} = \frac{\overline{X}-\mu}{s/\sqrt{N}}$$</span> 
+                        <p id="paragraph_b" class="hidden"> <b>Not quite.</b> Remember that <span class="mathjax">$$\hat{t} = \frac{\overline{X}-\mu}{s/\sqrt{N}}$$</span> 
                             You should plug the values <span class="mathjax">\( \mu = 55,000\)</span>, <span class="mathjax">\( \overline{X} = 51,576.07\)</span>, 
                             <span class="mathjax">\( s = 8829.28\)</span>, and <span class="mathjax">\( N = 30\)</span> into this formula.
                         </p>
-
-                        <div class="button-container">
-                            <button onclick="toggleVisibility('paragraph_b2')"><span class="mathjax">\(\ \hat{z}  = -11.63\)</span></button>
-                        </div>
-                        
-                        <p id="paragraph_b2" class="hidden"> <b>Not quite.</b> Remember that <span class="mathjax">$$\hat{z} = \frac{\overline{X}-\mu}{s/\sqrt{N}}$$</span> 
-                            You should plug the values <span class="mathjax">\( \mu = 55,000\)</span>, <span class="mathjax">\( \overline{X} = 51,576.07\)</span>, 
-                            <span class="mathjax">\( s = 8829.28\)</span>, and <span class="mathjax">\( N = 30\)</span> into this formula.
-                        </p>
-
 
                         <p>
                             The area under the standard normal probability density function (PDF) beyond the test 
-                            statistic <span class="mathjax">\(\hat{z} \)</span> is the p-value.
-                            This is illustrated for the 3 different kinds of hypothesis tests (left, right, two-sided) below the dashed line. The p-value measures the probability 
+                            statistic <span class="mathjax">\(\hat{t} \)</span> is the p-value.
+                            This is illustrated for the 3 different kinds of hypothesis tests (left, right, two-sided) below. The p-value measures the probability 
                             of collecting an average WTP estimate at least as extreme as the one we calculated in our survey if the null hypothesis <span class="mathjax">\(H_0: \mu \le $55,000\)</span> is true.
                         </p>
 
                         <p>
-                            2. What is the p-value <span class="mathjax">\( p \)</span> corresponding to the z-statistic for this survey?
+                            2. What is the p-value <span class="mathjax">\( p \)</span> corresponding to the t-statistic for this survey?
                         </p>
 
                         <div class="button-container">

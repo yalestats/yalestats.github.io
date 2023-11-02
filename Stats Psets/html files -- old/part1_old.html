@@ -88,60 +88,46 @@
             <h3>Practice Problem</h3>
 
             <p>
-                Now let's switch gears to an example problem that will help illustrate the relationship between population parameters and sample estimates.
+                Now let's switch gears to an example problem that will help illustrate the relationship between population parameters and sample estimates. <b>Note:</b> This practice problem asks you to use R to perform a simulation. For reproducibility, you should use  <span class="mathjax"> \( set.seed(123) \)</span>
+                to set a value for the random seed before beginning. <b>If you are confused, try asking ChatGPT before clicking the help button.</b>
                 </p>
 		
-        <p> Suppose the expected earnings of each adult in Nashville, Tennessee are <span class="mathjax"> \( \mu = 150,000 \)</span> but vary year-to-year 
-            because of labor market shocks. You survey 4 different adults in Nashville annually for 8 years 
-            to measure their earnings. The data you collect is stored here: <a href="https://www.dropbox.com/scl/fi/659q4aocxnj9se8nufr4a/earnings_nashville.csv?rlkey=v20k1f8a1oowd3byln5lbf2aj&dl=0" download>link to data</a>
-
-            . You should use Excel to analyze the data, which is organized
-            so that each column contains 8 observations of a single person's annual earnings. Answer the following questions:
+        <p> Suppose the earnings of adults in Nashville, Tennessee are approximately normally distributed with mean  <span class="mathjax"> \( \mu = 150,000 \)</span> and 
+            standard deviation <span class="mathjax"> \( \sigma = 30,000 \)</span>.  <a href="https://rdrr.io/snippets/">Use R</a> to construct 4 different random samples of <span class="mathjax"> \( 7 \)</span> individuals from this population.
+            You can think of these samples as 4 annual observations of each person's earnings. Answer the following questions:
         </p>
 
         <p>
-            1. What is the population parameter in this example?
+            1. What are the population parameters in this example?
         </p>
-
-        <div class="button-container">
-            <button onclick="toggleVisibility('paragraph_a')"> <span class="mathjax"> \(\mu = 150,000 \)</span></button>
-        </div>
-    
-        <p id="paragraph_a" class="hidden"> <b>This is correct!</b> A population parameter is a feature of the earnings process
-        that generates the collected survey data for each individual.</p>
-
-            <div class="button-container">
-                <button onclick="toggleVisibility('paragraph_b')">There are no population parameters in this example </button>
-            </div>
-        
-            <p id="paragraph_b" class="hidden"> <b>Not quite.</b> A population parameter is a feature of the earnings process
-                that generates the survey data you collected for each individual. What is the earnings process that generated the collected survey data?</p>
         <p>
-            2. What are the average earnings of the fourth adult?
+            2. What are the sample averages for each individual?
         </p>
     
             <div class="button-container">
-                <button onclick="toggleVisibility('paragraph3')">$149,101.20</button>
+                <button onclick="toggleVisibility('paragraph3')">I don't know where to start</button>
             </div>
         
-            <p id="paragraph3" class="hidden"><b>Not quite.</b> Make sure you are taking the average for one person across 8 years, not all 4 people within 
-            a single year. </p>
+            <p id="paragraph3" class="hidden">Copy and paste this prompt into ChatGPT: <b>Population earnings are normally 
+                distributed with mean <span class="mathjax"> \(150,000 \)</span> and standard deviation <span class="mathjax"> \(30,000 \)</span>. Provide 
+                me with R code that constructs 4 different random samples of 7 individuals from this population. 
+                Treating each sample as an annual observation of each person's earnings, calculate the average earnings of each individual across the 4 samples. </b></p>
 
             <div class="button-container">
-                <button onclick="toggleVisibility('paragraph4')">$157,900.50</button>
+                <button onclick="toggleVisibility('paragraph4')">Show me the answer</button>
             </div>
         
-            <p id="paragraph4" class="hidden"><b>This is correct!</b>
+            <p id="paragraph4" class="hidden">
             
 
-       <!--         R output from the ChatGPT prompt is shown <a href="https://www.dropbox.com/scl/fi/vbvu327ut8udbpb62zqsu/r_output.png?rlkey=3e5t0rj0bs0kkqd8salwvh481&dl=0">here</a>. The population earnings parameters are <span class="mathjax"> \( \mu = 150,000 \)</span>
+                R output from the ChatGPT prompt is shown <a href="https://www.dropbox.com/scl/fi/vbvu327ut8udbpb62zqsu/r_output.png?rlkey=3e5t0rj0bs0kkqd8salwvh481&dl=0">here</a>. The population earnings parameters are <span class="mathjax"> \( \mu = 150,000 \)</span>
             and <span class="mathjax"> \( \sigma = 30,000 \)</span>. In this example, we know the values of the population parameters: <b>in the real-world 
                 this is almost never the case</b>. The sample average earnings are <span class="mathjax"> \(\$130,504.9 \)</span>,
             <span class="mathjax"> \(\$148,829.1 \)</span>, <span class="mathjax"> \(\$156,615.0 \)</span>, 
             <span class="mathjax"> \(\$140,272.0 \)</span>, 
             <span class="mathjax"> \(\$146,278.2 \)</span>, 
             <span class="mathjax"> \(\$168,606.2 \)</span>, 
-            and <span class="mathjax"> \(\$147,428.6 \)</span>. -->
+            and <span class="mathjax"> \(\$147,428.6 \)</span>. 
          </p>
     </p>
 

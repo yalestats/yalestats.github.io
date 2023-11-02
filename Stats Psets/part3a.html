@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <title>What Does it Mean to Test a Hypothesis?</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+        hr {
+          border: none; /* Remove the default border */
+          height: 2px; /* Set the height */
+          background-color: #333; /* Set the color */
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            
+            // Hide only the hidden paragraphs
+            var hiddenParagraphs = document.getElementsByClassName('hidden');
+            for (var i = 0; i < hiddenParagraphs.length; i++) {
+                hiddenParagraphs[i].style.display = 'none';
+            }
+            
+            // Show the selected paragraph
+            element.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Question 1.1: What Does it Mean to Test a Hypothesis?</h1>
+    <div>
+
+        <p>
+            You are the operations manager at a manufacturing firm specializing in automotive parts. The existing single assembly line 
+            system produces 500 units per day on average, and 
+            the current belief within the company is that the firm is operating at optimal efficiency. You, however, have a new theory: implementing a parallel assembly 
+            line could boost daily production to more than 500 units without compromising quality. 
+        </p>
+
+        <p>
+            Your first task is to articulate two contrasting hypotheses: the traditional view and your innovative theory. 
+        </p>
+
+        <p>
+            Clearly state the traditional view:
+        </p>
+
+        <!--HTML form -->
+        <textarea id="studentAnswer" name="studentAnswer" rows="3" cols="50"></textarea>
+        
+        <!-- Your submit button -->
+        <button id="submitButton">Submit</button>
+        
+        <!-- Container to display the message -->
+        <div id="outputMessage"></div>
+        
+        <!-- Your JavaScript -->
+        <script>
+          $(document).ready(function() {
+            $('#submitButton').click(function() {
+              // You can process the student's answer here if needed
+              // For now, we are just displaying a static message
+              $('#outputMessage').html('The traditional view is that the optimal average daily production is 500 units. We commonly refer to this traditional view as the <b>null hypothesis</b>.');
+            });
+          });
+        </script>
+
+<p>
+    Next, clearly state your innovative theory:
+</p>
+
+<!--HTML form -->
+<textarea id="studentAnswer2" name="studentAnswer2" rows="3" cols="50"></textarea>
+
+<!-- Your submit button -->
+<button id="submitButton2">Submit</button>
+
+<!-- Container to display the message -->
+<div id="outputMessage2"></div>
+
+<!-- Your JavaScript -->
+<script>
+  $(document).ready(function() {
+    $('#submitButton2').click(function() {
+      // You can process the student's answer here if needed
+      // For now, we are just displaying a static message
+      $('#outputMessage2').html('Your innovative theory is that the optimal average daily production is greater than 500 units. We commonly refer to this innovative (new) theory as the <b>alternative hypothesis</b>.');
+    });
+  });
+</script>
+
+        <p>
+            Now, outline a plan to evaluate these competing hypotheses 
+            in the factory. What data do you think you might need to collect to perform this evaluation?
+        </p>
+
+
+<!--HTML form -->
+<textarea id="studentAnswer3" name="studentAnswer3" rows="3" cols="50"></textarea>
+
+<!-- Your submit button -->
+<button id="submitButton3">Submit</button>
+
+<!-- Container to display the message -->
+<div id="outputMessage3"></div>
+
+<!-- Your JavaScript -->
+<script>
+  $(document).ready(function() {
+    $('#submitButton3').click(function() {
+      // You can process the student's answer here if needed
+      // For now, we are just displaying a static message
+      $('#outputMessage3').html('To evaluate these competing hypotheses, you will need to collect data on daily firm production after the implementation of a parallel assembly line. If average daily production is much larger than 500, we may be able to reject that the optimal average daily production is 500. In other words, the current belief will be rejected. We will learn more about how to rigorously evaluate these types of hypotheses in the next few sections.');
+    });
+  });
+</script>
+
+    <hr> <!-- This is where the styled horizontal line appears -->
+
+    <p>
+        
+    </p>
+    <div>
+		<button onclick="openPreviousPage()">Previous Conceptual Topic: Confidence Intervals</button>
+		<script>
+			function openPreviousPage() {
+				window.location.href = "part2.html";
+			}
+		</script>
+	</div>
+
+	<div>
+		<button onclick="openNewPage()">Next Problem: Stating Hypotheses</button>
+		<script>
+			function openNewPage() {
+				window.location.href = "part3b.html";
+			}
+		</script>
+	</div>
+
+<!--    <div>
+		<button onclick="openNewPage1()">Skip to Next Problem: Hypothesis Testing</button>
+		<script>
+			function openNewPage1() {
+				window.location.href = "part6.html";
+			}
+		</script>
+	</div>
+
+    -->
+	
+	<script>
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementsByClassName("mathjax")]);
+      </script>
+      
+</body>
+</html>
